@@ -1076,7 +1076,7 @@ HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
 echo '⇗ نظام التشغيل ⇖•\n*←← '"$linux_version"'*' 
-echo '⁽❅₎︎═───═𝗦𝗢𝗢𝗡═───═??\n⁽❅₎︎✔{ الذاكره العشوائيه } ⇎\n*←← '"$memUsedPrc"'*'
+echo '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n⁽❅₎︎✔{ الذاكره العشوائيه } ⇎\n*←← '"$memUsedPrc"'*'
 echo '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n⁽❅₎︎✔{ وحـده الـتـخـزيـن } ⇎\n*←← '"$HardDisk"'*'
 echo '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n⁽❅₎︎✔{ الـمــعــالــج } ⇎\n*←← '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
 echo '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n⁽❅₎︎✔{ الــدخــول } ⇎\n*←← '`whoami`'*'
@@ -2751,7 +2751,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if text == 'سمير'  then
+if text == 'دونجول'  then
 local Text = [[
  مبرمج السورس² لو حابب تتواصل معاه
 اتبع الزر إلى تحت ↓
@@ -13712,7 +13712,7 @@ end
 local Text =[[
 اتبع الازرار تحت ⇣
 واستمتع للأوامر 🕹️
-🦇[𝐀𝐕𝐈𝐑𝐀 ](t.me/A_V_I_R_A_1)🦇
+🦇[𝐒𝐎𝐔𝐑𝐂𝐄⁦ 𝐀𝐕𝐈𝐑𝐀 ](t.me/A_V_I_R_A_1)🦇
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -14549,7 +14549,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'Back 🦇 ', callback_data="/add"},
+{text = 'BACK🦇 ', callback_data="/add"},
 },
 {
 {text = 'اوامر الوضع', callback_data="/help3"},{text = 'اوامر التنزيل والرفع', callback_data="/help4"},
@@ -14600,7 +14600,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'Back 🦇 ', callback_data="/add"},
+{text = 'BACK🦇 ', callback_data="/add"},
 },
 {
 {text = '𝚂𝙾𝚄𝚁𝙲𝙴 𝙰𝚅𝙸𝚁𝙰', url="t.me/A_V_I_R_A_1"},
@@ -14646,7 +14646,7 @@ keyboard.inline_keyboard = {
 {{text = 'SkodaHockey1 ', url="https://t.me/gamee?game=SkodaHockey1"},{text = 'SummerLove', url="https://t.me/gamee?game=SummerLove"}},  
 {{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
 {{text = '  𖣘 ⁽SＯＵＲＣＥ₎ 𖣘', url="t.me/A_V_I_R_A_1"}},
-{{text = 'Back 🦇 ', callback_data="/add"}},
+{{text = 'BACK🦇 ', callback_data="/add"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -14736,7 +14736,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'Back 🦇 ', callback_data="/add"},
+{text = 'BACK🦇 ', callback_data="/add"},
 },
 {
 {text = '𝚂𝙾𝚄𝚁𝙲𝙴 𝙰𝚅𝙸𝚁𝙰', url="t.me/A_V_I_R_A_1"},
