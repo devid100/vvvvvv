@@ -137,11 +137,11 @@ end
 _redis = load_redis()  
 --------------------------------------------------------------------------------------------------------------
 print([[
-___     _     _  _   ___      _   
- | _ )   /_\   | \| | |   \    /_\  
- | _ \  / _ \  | .` | | |) |  / _ \ 
- |___/ /_/ \_\ |_|\_| |___/  /_/ \_\
- 
+     _               _      _ 
+  __| |  ___  __ __ (_)  __| |
+ / _` | / -_) \ V / | | / _` |
+ \__,_| \___|  \_/  |_| \__,_|
+                              
 > CH › @A_V_I_R_A_1
 ~> DEVELOPER › @de_vi_d 
 ]])
@@ -152,11 +152,6 @@ bot_id = sudos.token:match("(%d+)")
 token = sudos.token 
 --- start functions ↓
 --------------------------------------------------------------------------------------------------------------
-io.popen("mkdir File_Bot") 
-io.popen("cd File_Bot && rm -rf commands.lua.1") 
-io.popen("cd File_Bot && rm -rf commands.lua.2") 
-io.popen("cd File_Bot && rm -rf commands.lua.3") 
-io.popen("cd File_Bot && wget https://raw.githubusercontent.com/devid100/vvvvvv/main/File_Bot/commands.lua") 
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
@@ -169,7 +164,8 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1360140225,1770288756,1321115355,944353237,1601519796}   
+local AHMEDSUDO = '944353237'
+sudo_users = {SUDO,1360140225,1770288756,1321115355,AHMEDSUDO,1601519796,bot_id}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -263,7 +259,7 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = true
 elseif tonumber(user_id) == tonumber(1770288756) then
 var = true
-elseif tonumber(user_id) == tonumber(944353237) then
+elseif tonumber(user_id) == tonumber(AHMEDSUDO) then
 var = true
 elseif tonumber(user_id) == tonumber(1601519796) then
 var = true
@@ -305,7 +301,7 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = ' مبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(1770288756) then
 var = 'مبرمج السورس²'
-elseif tonumber(user_id) == tonumber(944353237) then
+elseif tonumber(user_id) == tonumber(AHMEDSUDO) then
 var = 'مبرمج باور'
 elseif tonumber(user_id) == tonumber(1601519796) then
 var = 'مبرمج السورس²'
@@ -3962,20 +3958,28 @@ end
 return false
 end
 function start_function(extra, result, success)
-if result.sender_user_id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك حظر المطور الاساسي \n")
-return false 
-end
-if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر البوت عام")
+if tonumber(result.sender_user_id_) == tonumber(1601519796) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(1360140225) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
+return false 
+end
+if tonumber(result.sender_user_id_) == tonumber(AHMEDSUDO) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج باور عام")
+return false 
+end
+if result.sender_user_id_ == tonumber(SUDO) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} المطور الاساسي \n")
+return false 
+end
+if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} البوت عام")
 return false 
 end
 database:sadd(bot_id..'GBan:User', result.sender_user_id_)
@@ -4008,20 +4012,28 @@ if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_," ✤︎ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر البوت عام")
-return false 
-end
-if result.id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك حظر المطور الاساسي \n")
+if result.id_ == tonumber(1601519796) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} مبرمج السورس \n")
 return false 
 end
 if result.id_ == tonumber(1360140225) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك حظر مبرمج السورس \n")
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} مبرمج السورس \n")
 return false 
 end
 if result.id_ == tonumber(1770288756) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك حظر مبرمج السورس \n")
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(AHMEDSUDO) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} مبرمج باور عام \n")
+return false 
+end
+if tonumber(result.id_) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} البوت عام")
+return false 
+end
+if result.id_ == tonumber(SUDO) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} المطور الاساسي \n")
 return false 
 end
 usertext = '\n ✤︎ العضو ← ['..result.title_..'](t.me/'..(username or 'DV_POWER1')..')'
@@ -4048,20 +4060,28 @@ send(msg.chat_id_, msg.id_,' ✤︎ لا تستطيع استخدام البوت 
 end
 return false
 end
-if userid == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك حظر المطور الاساسي \n")
-return false 
-end
-if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر البوت عام")
-return false 
-end
 if tonumber(userid) == tonumber(1360140225) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
 return false 
 end
 if tonumber(userid) == tonumber(1770288756) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
+return false 
+end
+if tonumber(userid) == tonumber(1601519796) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
+return false 
+end
+if tonumber(userid) == tonumber(AHMEDSUDO) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج باور عام")
+return false 
+end
+if userid == tonumber(SUDO) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} المطور الاساسي \n")
+return false 
+end
+if tonumber(userid) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} البوت عام")
 return false 
 end
 database:sadd(bot_id..'GBan:User', userid)
@@ -4089,20 +4109,28 @@ end
 return false
 end
 function start_function(extra, result, success)
-if result.sender_user_id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك كتم المطور الاساسي \n")
-return false 
-end
-if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم البوت عام")
+if tonumber(result.sender_user_id_) == tonumber(1601519796) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(1360140225) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
+return false 
+end
+if tonumber(result.sender_user_id_) == tonumber(AHMEDSUDO) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج باور عام")
+return false 
+end
+if result.sender_user_id_ == tonumber(SUDO) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} المطور الاساسي \n")
+return false 
+end
+if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} البوت عام")
 return false 
 end
 database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
@@ -4134,20 +4162,28 @@ if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_," ✤︎ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم البوت عام")
-return false 
-end
-if result.id_ == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك كتم المطور الاساسي \n")
+if result.id_ == tonumber(1601519796) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} مبرمج السورس \n")
 return false 
 end
 if result.id_ == tonumber(1360140225) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك كتم مبرمج السورس \n")
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} مبرمج السورس \n")
 return false 
 end
 if result.id_ == tonumber(1770288756) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك كتم مبرمج السورس \n")
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(AHMEDSUDO) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} مبرمج باور عام \n")
+return false 
+end
+if tonumber(result.id_) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} البوت عام")
+return false 
+end
+if result.id_ == tonumber(SUDO) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} المطور الاساسي \n")
 return false 
 end
 usertext = '\n ✤︎ العضو ← ['..result.title_..'](t.me/'..(username or 'DV_POWER1')..')'
@@ -4174,20 +4210,28 @@ send(msg.chat_id_, msg.id_,' ✤︎ لا تستطيع استخدام البوت 
 end
 return false
 end
-if userid == tonumber(SUDO) then
-send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك كتم المطور الاساسي \n")
-return false 
-end
-if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم البوت عام")
-return false 
-end
 if tonumber(userid) == tonumber(1360140225) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
 return false 
 end
 if tonumber(userid) == tonumber(1770288756) then  
-send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
+return false 
+end
+if tonumber(userid) == tonumber(1601519796) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج السورس عام")
+return false 
+end
+if tonumber(userid) == tonumber(AHMEDSUDO) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} مبرمج باور عام")
+return false 
+end
+if userid == tonumber(SUDO) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك {حظر-كتم} المطور الاساسي \n")
+return false 
+end
+if tonumber(userid) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع {حظر-كتم} البوت عام")
 return false 
 end
 database:sadd(bot_id..'Gmute:User', userid)
@@ -10600,7 +10644,7 @@ database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text)
 end  
 end
 end
-if text == ("مسح الردود") and Manager(msg) then
+if text == ("مسح الردود") and Basicmalak(msg) then
 local list = database:smembers(bot_id..'List:Manager'..msg.chat_id_..'')
 for k,v in pairs(list) do
 database:del(bot_id.."Add:Rd:Manager:Gif"..v..msg.chat_id_)   
@@ -10613,34 +10657,33 @@ database:del(bot_id.."Add:Rd:Manager:File"..v..msg.chat_id_)
 database:del(bot_id.."Add:Rd:Manager:Audio"..v..msg.chat_id_)
 database:del(bot_id..'List:Manager'..msg.chat_id_)
 end
-send(msg.chat_id_, msg.id_," ✤︎ تم مسح الردود")
+send(msg.chat_id_, msg.id_,"• تم مسح الردود")
 end
-
 if text == ("الردود") and Manager(msg) then
 local list = database:smembers(bot_id..'List:Manager'..msg.chat_id_..'')
-text = " ✤︎ قائمه الردود \n⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n"
+text = " قائمه الردود \n *•●○ᵴέℓẠ○●○●•ٴ*\n"
 for k,v in pairs(list) do
 if database:get(bot_id.."Add:Rd:Manager:Gif"..v..msg.chat_id_) then
-db = 'متحركه'
+db = 'متحركه •'
 elseif database:get(bot_id.."Add:Rd:Manager:Vico"..v..msg.chat_id_) then
-db = 'بصمه'
+db = 'بصمه •'
 elseif database:get(bot_id.."Add:Rd:Manager:Stekrs"..v..msg.chat_id_) then
-db = 'ملصق'
+db = 'ملصق •'
 elseif database:get(bot_id.."Add:Rd:Manager:Text"..v..msg.chat_id_) then
-db = 'رساله'
+db = 'رساله •'
 elseif database:get(bot_id.."Add:Rd:Manager:Photo"..v..msg.chat_id_) then
-db = 'صوره'
+db = 'صوره •'
 elseif database:get(bot_id.."Add:Rd:Manager:Video"..v..msg.chat_id_) then
-db = 'فيديو'
+db = 'فيديو •'
 elseif database:get(bot_id.."Add:Rd:Manager:File"..v..msg.chat_id_) then
-db = 'ملف'
+db = 'ملف •'
 elseif database:get(bot_id.."Add:Rd:Manager:Audio"..v..msg.chat_id_) then
-db = 'اغنيه'
+db = 'اغنيه •'
 end
-text = text..""..k..">> ("..v..") ← {"..db.."}\n"
+text = text..""..k..">> ("..v..") > {"..db.."}\n"
 end
 if #list == 0 then
-text = " ✤︎ لا يوجد ردود للمدير"
+text = "• لا يوجد ردود"
 end
 send(msg.chat_id_, msg.id_,'['..text..']')
 end
@@ -10688,13 +10731,13 @@ photo_in_group = msg.content_.photo_.sizes_[3].photo_.persistent_id_
 end
 database:set(bot_id.."Add:Rd:Manager:Photo"..test..msg.chat_id_, photo_in_group)  
 end
-send(msg.chat_id_, msg.id_,' ✤︎ تم حفظ الرد')
+send(msg.chat_id_, msg.id_,' تم حفظ الرد بنجاح')
 return false  
 end  
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_) == 'true' then
-send(msg.chat_id_, msg.id_,' ✤︎ ارسل الرد الذي تريد اضافته')
+send(msg.chat_id_, msg.id_,'• ارسل الرد الذي تريده سواء كان {صوره,فيديو,متحركه,ملصق,بصمه,صوت}')
 database:set(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_,'true1')
 database:set(bot_id..'Text:Manager'..msg.sender_user_id_..':'..msg.chat_id_, text)
 database:del(bot_id.."Add:Rd:Manager:Gif"..text..msg.chat_id_)   
@@ -10710,7 +10753,7 @@ return false end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_..'') == 'true2' then
-send(msg.chat_id_, msg.id_,' ✤︎ تم ازالة الرد ')
+send(msg.chat_id_, msg.id_,'• تم ازالة الرد ')
 database:del(bot_id.."Add:Rd:Manager:Gif"..text..msg.chat_id_)   
 database:del(bot_id.."Add:Rd:Manager:Vico"..text..msg.chat_id_)   
 database:del(bot_id.."Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
@@ -10726,29 +10769,30 @@ end
 end
 if text == 'اضف رد' and Manager(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local A_V_I_R_A_1 = database:get(bot_id..'text:ch:user')
-if A_V_I_R_A_1 then
-send(msg.chat_id_, msg.id_,'['..A_V_I_R_A_1..']')
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ✤︎ لا تستطيع استخدام البوت \n  ✤︎ يرجى الاشتراك بالقناه اولا \n  ✤︎ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'•  𝑾𝒆𝒍𝒄𝒐𝒎𝒆 ○ᵴέℓẠ○ •\n• لايمكنك استخدام البوت •\n• عليك الاشتراك في القناة •\n• اشترك اولا ['..database:get(bot_id..'add:ch:username')..'•]')
 end
 return false
 end
-send(msg.chat_id_, msg.id_,' ✤︎ ارسل الكلمه التي تريد اضافتها')
+send(msg.chat_id_, msg.id_,'• ارسل الكلمه التي تريد اضافتها')
 database:set(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
+------------------------------------------------------------------------
 if text == 'حذف رد' and Manager(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local A_V_I_R_A_1 = database:get(bot_id..'text:ch:user')
-if A_V_I_R_A_1 then
-send(msg.chat_id_, msg.id_,'['..A_V_I_R_A_1..']')
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ✤︎ لا تستطيع استخدام البوت \n  ✤︎ يرجى الاشتراك بالقناه اولا \n  ✤︎ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'•  𝑾𝒆𝒍𝒄𝒐𝒎𝒆 ○ᵴέℓẠ○ •\n• لايمكنك استخدام البوت •\n• عليك الاشتراك في القناة •\n• اشترك اولا ['..database:get(bot_id..'add:ch:username')..'•]')
 end
 return false
 end
-send(msg.chat_id_, msg.id_,' ✤︎ ارسل الكلمه التي تريد حذفها')
+send(msg.chat_id_, msg.id_,' ارسل الكلمه التي تريد حذفها')
 database:set(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_,'true2')
 return false 
 end
@@ -10762,6 +10806,41 @@ local photo = database:get(bot_id.."Add:Rd:Manager:Photo"..text..msg.chat_id_)
 local video = database:get(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
 local document = database:get(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
 local audio = database:get(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
+------------------------------------------------------------------------
+if text1 then 
+send(msg.chat_id_, msg.id_, text1)
+database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
+end
+if stekr then 
+sendSticker(msg.chat_id_, msg.id_, 0, 1, nil, stekr)   
+database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
+end
+if veico then 
+sendVoice(msg.chat_id_, msg.id_, 0, 1, nil, veico)   
+database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
+end
+if video then 
+sendVideo(msg.chat_id_, msg.id_, 0, 1, nil,video)
+database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
+end
+if anemi then 
+sendDocument(msg.chat_id_, msg.id_, 0, 1,nil, anemi)   
+database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
+end
+if document then
+sendDocument(msg.chat_id_, msg.id_, 0, 1,nil, document)   
+database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
+end  
+if audio then
+sendAudio(msg.chat_id_,msg.id_,audio)  
+database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
+end
+if photo then
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil,photo,photo_caption)
+database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
+end  
+end
+end
 ------------------------------------------------------------------------
 if text and text:match("^قول (.*)$") then
 local Textxt = text:match("^قول (.*)$")
