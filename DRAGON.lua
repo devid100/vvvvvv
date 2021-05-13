@@ -11185,7 +11185,7 @@ sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil,photo,photo_caption)
 database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
 end  
 end
-end
+
 
 -------------------------------
 if text == ""..(database:get(bot_id..'Name:Bot') or 'افايره').." غادر" or text == 'غادر' then  
