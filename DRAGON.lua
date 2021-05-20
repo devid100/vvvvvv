@@ -3966,6 +3966,10 @@ if tonumber(result.sender_user_id_) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
+if tonumber(result.sender_user_id_) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر مبرمج باور عام")
+return false 
+end
 if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
 send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر مبرمج السورس عام")
 return false 
@@ -4012,6 +4016,10 @@ if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك حظر مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(944353237) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك حظر مبرمج باور \n")
+return false 
+end
 if result.id_ == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك حظر مبرمج السورس \n")
 return false 
@@ -4056,6 +4064,10 @@ if tonumber(userid) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
+if tonumber(userid) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع حظر مبرمج باور عام")
+return false 
+end
 database:sadd(bot_id..'GBan:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
@@ -4097,6 +4109,10 @@ if tonumber(result.sender_user_id_) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
+if tonumber(result.sender_user_id_) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم مبرمج باور عام")
+return false 
+end
 database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
@@ -4132,6 +4148,10 @@ return false
 end
 if result.id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك كتم المطور الاساسي \n")
+return false 
+end
+if result.id_ == tonumber(944353237) then
+send(msg.chat_id_, msg.id_, " ✤︎ لا يمكنك كتم مبرمج السورس عام \n")
 return false 
 end
 if result.id_ == tonumber(1360140225) then
@@ -4176,6 +4196,10 @@ return false
 end
 if tonumber(userid) == tonumber(1360140225) then  
 send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم مبرمج السورس عام")
+return false 
+end
+if tonumber(userid) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " ✤︎ لا تسطيع كتم مبرمج باور عام")
 return false 
 end
 if tonumber(userid) == tonumber(1770288756) then  
