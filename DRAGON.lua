@@ -13722,6 +13722,11 @@ send(msg.chat_id_, msg.id_, ' ✤︎ الان يمكنك ارسال الكليش
 database:set(bot_id..'help10'..msg.sender_user_id_,'true')
 return false 
 end
+if text=="اذاعه بالتثبيت" and msg.reply_to_message_id_ == 0 and DevSoFi(msg) then 
+database:setex(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_," ✤︎ ارسل الان اذاعتك؟ \n ✤︎ للخروج ارسل الغاء ")
+return false
+end 
 ---------------------- الاوامر الجديدة
 if text == 'الاوامر' then
 if not Mod(msg) then
