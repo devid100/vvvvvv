@@ -1073,19 +1073,22 @@ database:del(bot_id..'Start:Bot')
 send(msg.chat_id_, msg.id_,' 𖠪 تم حذف كليشه ستارت')
 end
 if text == 'معلومات السيرفر' and DevSoFi(msg) then 
-send(msg.chat_id_, msg.id_, io.popen([[
+local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/A_V_I_R_A_1"}},} 
+local server = io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '⇗ نظام التشغيل ⇖•\n*←← '"$linux_version"'*' 
-echo '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n𖠪✔{ الذاكره العشوائيه } ⇎\n*←← '"$memUsedPrc"'*'
-echo '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n𖠪✔{ وحـده الـتـخـزيـن } ⇎\n*←← '"$HardDisk"'*'
-echo '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n𖠪✔{ الـمــعــالــج } ⇎\n*←← '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n𖠪✔{ الــدخــول } ⇎\n*←← '`whoami`'*'
-echo '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n𖠪✔{ مـده تـشغيـل الـسـيـرفـر }⇎\n*←← '"$uptime"'*'
-]]):read('*all'))  
+echo '[BY AHMEDYAD](t.me/ahmedyad200)\n☉✔{ نظام التشغيل } ⊰•\n `'"$linux_version"'`' 
+echo '≪━━━━𝐀𝐕𝐈𝐑𝐀━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n `'"$memUsedPrc"'`'
+echo '≪━━━━𝐀𝐕𝐈𝐑𝐀━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n `'"$HardDisk"'`'
+echo '≪━━━━𝐀𝐕𝐈𝐑𝐀━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n `'"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'`'
+echo '≪━━━━𝐀𝐕𝐈𝐑𝐀━━━━≫\n☉✔{ الــدخــول } ⊰•\n `'`whoami`'`'
+echo '≪━━━━𝐀𝐕𝐈𝐑𝐀━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n `'"$uptime"'`'
+]]):read('*all')
+send_inline_key(msg.chat_id_,server,nil,inline)
+end
 end
 
 if text == 'تحديث السورس ' and DevSoFi(msg) then 
@@ -2722,6 +2725,7 @@ keyboard.inline_keyboard = {
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
 {{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},
 {{text = '  𖣘 ⁽SＯＵＲＣＥ₎ 𖣘 ', url="t.me/A_V_I_R_A_1"}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/I_E_S9BOT?startgroup=start"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -3966,6 +3970,10 @@ if tonumber(result.sender_user_id_) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
+if tonumber(result.sender_user_id_) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع حظر مبرمج باور عام")
+return false 
+end
 if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع حظر مبرمج السورس عام")
 return false 
@@ -4012,6 +4020,10 @@ if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " 𖠪 لا يمكنك حظر مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(944353237) then
+send(msg.chat_id_, msg.id_, " 𖠪 لا يمكنك حظر مبرمج باور عام \n")
+return false 
+end
 if result.id_ == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " 𖠪 لا يمكنك حظر مبرمج السورس \n")
 return false 
@@ -4056,6 +4068,10 @@ if tonumber(userid) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
+if tonumber(userid) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع حظر مبرمج باور عام")
+return false 
+end
 database:sadd(bot_id..'GBan:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
@@ -4087,6 +4103,10 @@ return false
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع كتم البوت عام")
+return false 
+end
+if tonumber(result.sender_user_id_) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع كتم مبرمج باور عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(1360140225) then  
@@ -4128,6 +4148,10 @@ return false
 end      
 if tonumber(result.id_) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع كتم البوت عام")
+return false 
+end
+if result.id_ == tonumber(944353237) then
+send(msg.chat_id_, msg.id_, " 𖠪 لا يمكنك كتم مبرمج باور عام \n")
 return false 
 end
 if result.id_ == tonumber(SUDO) then
@@ -4180,6 +4204,10 @@ return false
 end
 if tonumber(userid) == tonumber(1770288756) then  
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع كتم مبرمج السورس عام")
+return false 
+end
+if tonumber(userid) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع كتم مبرمج باور عام")
 return false 
 end
 database:sadd(bot_id..'Gmute:User', userid)
