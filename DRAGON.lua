@@ -3970,6 +3970,10 @@ if tonumber(result.sender_user_id_) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
+if tonumber(result.sender_user_id_) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع حظر مبرمج باور عام")
+return false 
+end
 database:sadd(bot_id..'GBan:User', result.sender_user_id_)
 chat_kick(result.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
@@ -4016,6 +4020,10 @@ if result.id_ == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " 𖠪 لا يمكنك حظر مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(944353237) then
+send(msg.chat_id_, msg.id_, " 𖠪 لا يمكنك حظر مبرمج باور عام \n")
+return false 
+end
 usertext = '\n 𖠪 العضو ← ['..result.title_..'](t.me/'..(username or 'DV_POWER1')..')'
 status  = '\n 𖠪 تم حظره عام من الجروبات'
 texts = usertext..status
@@ -4050,6 +4058,10 @@ return false
 end
 if tonumber(userid) == tonumber(1360140225) then  
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع حظر مبرمج السورس عام")
+return false 
+end
+if tonumber(userid) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع حظر مبرمج باور عام")
 return false 
 end
 if tonumber(userid) == tonumber(1770288756) then  
@@ -4097,6 +4109,10 @@ if tonumber(result.sender_user_id_) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
+if tonumber(result.sender_user_id_) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع كتم مبرمج باور عام")
+return false 
+end
 database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
@@ -4138,6 +4154,10 @@ if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " 𖠪 لا يمكنك كتم مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(944353237) then
+send(msg.chat_id_, msg.id_, " 𖠪 لا يمكنك كتم مبرمج باور عام \n")
+return false 
+end
 if result.id_ == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " 𖠪 لا يمكنك كتم مبرمج السورس \n")
 return false 
@@ -4172,6 +4192,10 @@ return false
 end
 if tonumber(userid) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع كتم البوت عام")
+return false 
+end
+if tonumber(userid) == tonumber(944353237) then  
+send(msg.chat_id_, msg.id_, " 𖠪 لا تسطيع كتم مبرمج باور عام")
 return false 
 end
 if tonumber(userid) == tonumber(1360140225) then  
