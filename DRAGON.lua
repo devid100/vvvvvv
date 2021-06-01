@@ -11836,7 +11836,7 @@ local Name_Bot = database:get(bot_id..'Name:Bot')
 local function getpro(extra, result, success)  
 if result.photos_[0] then  
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," اسمي "..Name_Bot.." ", msg.id_, msg.id_, "md")  
-end end  
+end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil)  
 end
 if text == "صورتي"  then
