@@ -11805,8 +11805,7 @@ local Text = [[
  ]].." اسمي "..Name_Bot.." "..[[ 
  
 ]]
-
-" اسمي "..Name_Bot.." "
+ 
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = '  اضف البوت الي مجموعتك ',url="t.me/I_E_S9BOT?startgroup=start"}}}
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/I_E_S9BOT&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
