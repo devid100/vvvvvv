@@ -2711,18 +2711,29 @@ end
 end
 end,nil)   
 end
-if text == 'ديفيد' or text == 'ديفد' or text == 'دفيد' or text == 'source' then
+
+if text == 'ديفيد' or text == 'ديفد' then
+local msg_id = msg.id_/2097152/0.5
 local Text = [[
  المبرمج ديفيد 
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
-}
-local msg_id = msg.id_/2097152/0.5
+keyboard.inline_keyboard = {{{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},}
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/de_vi_d&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
+if text == 'دونجول' or text == "دونجل" then
+local msg_id = msg.id_/2097152/0.5
+local Text = [[
+ المبرمج دونجول
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/UU_DON&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
+local msg_id = msg.id_/2097152/0.5
 local Text = [[
  ᪣ 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝙰𝚅𝙸𝚁𝙰 ᪣
 ᪣ 𝙿𝙼 𝙼𝙴 𝚃𝙾 𝙼𝙰𝙺𝙴 𝚈𝙾𝚄𝚁 𝙾𝚆𝙽 𝙾𝙽𝙴! ᪣
@@ -2734,7 +2745,6 @@ keyboard.inline_keyboard = {
 {{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},
 {{text = '  𖣘 ⁽SＯＵＲＣＥ₎ 𖣘 ', url="t.me/A_V_I_R_A_1"}},
 }
-local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/A_V_I_R_A_1&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
@@ -2752,45 +2762,6 @@ keyboard.inline_keyboard = {
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
 {{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},
 {{text = '  ❨ TＷＡＳＯＬ 🦇  ❩ ',url="t.me/I_E_S9BOT"}}, 
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if text == 'محمد' or text == 'Devid' or text == 'Devid' then
-local Text = [[
-المبرمج ديفيد لو حابب تتواصل معاه
-اتبع الزر إلى تحت ↓
-
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if text == 'دونجول'  then
-local Text = [[
- مبرمج السورس² لو حابب تتواصل معاه
-اتبع الزر إلى تحت ↓
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-if text == 'مبرمج السورس²'  then
-local Text = [[
- مبرمج السورس² لو حابب تتواصل معاه
-اتبع الزر إلى تحت ↓
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -2898,6 +2869,7 @@ local TWEET_Msg = {
 send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
 return false 
 end
+
 if text == "كتبات" or text == "حكمه" or text == "قصيده" then 
 local TWEET_Msg = { 
 "‏من ترك أمرهُ لله، أعطاه الله فوق ما يتمنَّاه💙 ", 
@@ -2934,6 +2906,7 @@ local TWEET_Msg = {
 send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
 return false 
 end
+
 if text == "انصحني" or text == "انصحنى" or text == "انصح" then 
 local TWEET_Msg = { 
 "عامل الناس بأخلاقك ولا بأخلاقهم", 
@@ -2963,6 +2936,7 @@ local TWEET_Msg = {
 send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
 return false 
 end
+
 if text == 'قناة السورس' then
 local Text = [[ 
 [CH](t.me/A_V_I_R_A_1)
@@ -2974,6 +2948,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
+
 if text == '⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥' then
 local Text = [[ 
 🦇من أحسن السورسات على التليجرام سورس افايره🦇
@@ -2988,6 +2963,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
+
 if text == 'بوت التواصل' then
 local Text = [[ 
 [TWL](t.me/de_vi_d25BOT)
@@ -3007,18 +2983,6 @@ local Text = [[
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘', url="t.me/de_vi_d"}}, 
-} 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
-
-if text == 'مبرمج السورس²' then
-local Text = [[ 
-
-]] 
-keyboard = {}  
-keyboard.inline_keyboard = { 
-{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘',url="t.me/UU_DON"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -11830,6 +11794,16 @@ else
 Text = '\n 𖠪 بالتاكيد تم تعطيل امر اطردني مفيش خروج يولاد الكلب 😹'
 end
 send(msg.chat_id_, msg.id_,Text) 
+end
+if text == "بوت" or text == 'بوتت' then  
+local Name_Bot = database:get(bot_id..'Name:Bot') 
+local function getpro(extra, result, success)  
+if result.photos_[0] then  
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," اسمي "..Name_Bot.." ", msg.id_, msg.id_, "md")  
+else
+send(msg.chat_id_, msg.id_,'', 1, 'md')
+  end end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil)  
 end
 if text == "صورتي"  then
 local my_ph = database:get(bot_id.."my_photo:status"..msg.chat_id_)
