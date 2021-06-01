@@ -2726,6 +2726,19 @@ keyboard.inline_keyboard = {{{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/de_vi_d&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
+if text ==  سيمبا  or text ==  الباشمبرمج  or text ==  سمبا  or text ==  source  then
+local Text = [[
+الباشمبرمج السورس 
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text =   𖣘 ⁽ＳＩⅯＢＡ₎ 𖣘  ,url="t.me/DEV_SIMBA
+"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token.. /sendPhoto?chat_id=  .. msg.chat_id_ ..  &photo=https://t.me/DEV_SIMBA&caption=  .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
 if text == 'دونجول' or text == "دونجل" then
 local msg_id = msg.id_/2097152/0.5
 local Text = [[
