@@ -11799,7 +11799,19 @@ if text == "بوت" or text == 'بوتت' then
 local Name_Bot = database:get(bot_id..'Name:Bot') 
 local function getpro(extra, result, success)  
 if result.photos_[0] then  
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," اسمي "..Name_Bot.." ", msg.id_, msg.id_, "md")  
+
+local msg_id = msg.id_/2097152/0.5
+local Text = [[
+ ]].." اسمي "..Name_Bot.." "..[[ 
+ 
+]]
+
+" اسمي "..Name_Bot.." "
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '  اضف البوت الي مجموعتك ',url="t.me/I_E_S9BOT?startgroup=start"}}}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/I_E_S9BOT&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+
+--sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," اسمي "..Name_Bot.." ", msg.id_, msg.id_, "md")  
 else
 send(msg.chat_id_, msg.id_,'خطأ', 1, 'md')
   end end
