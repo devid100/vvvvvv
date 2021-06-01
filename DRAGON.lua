@@ -169,7 +169,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1360140225,1770288756,944353237}   
+sudo_users = {SUDO,1360140225,1770288756,944353237,1847495063}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -263,6 +263,8 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = true
 elseif tonumber(user_id) == tonumber(1770288756) then
 var = true
+elseif tonumber(user_id) == tonumber(1847495063) then
+var = true
 elseif tonumber(user_id) == tonumber(944353237) then
 var = true
 elseif tonumber(user_id) == tonumber(SUDO) then
@@ -301,6 +303,8 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = ' مبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(1770288756) then
 var = 'مبرمج السورس²'
+elseif tonumber(user_id) == tonumber(1847495063) then
+var = 'الباشمبرمج السورس'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'مبرمج باور'
 elseif tonumber(user_id) == tonumber(SUDO) then
