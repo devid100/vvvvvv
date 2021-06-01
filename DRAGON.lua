@@ -2711,6 +2711,19 @@ end
 end
 end,nil)   
 end
+if text ==  "دنجول"  or text ==  "دنجوله"  or text ==  "دونجول" then
+local Text = [[
+ 🦇  مرحبا بك في سورس افايره   🦇 
+اتبع الازرار إلى تحت ↓
+لدخول لحسابات السورس 
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text =  ' 𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘'   ,url="t.me/UU_DON"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token.. /sendPhoto?chat_id=  .. msg.chat_id_ ..  &photo=https://t.me/UU_DON&caption=  .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 if text == 'ديفيد' or text == 'ديفد' or text == 'دفيد' or text == 'source' then
 local Text = [[
  المبرمج ديفيد 
