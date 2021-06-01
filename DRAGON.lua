@@ -2724,9 +2724,9 @@ https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. ms
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 local Text = [[
- 🦇  مرحبا بك في سورس افايره   🦇 
-اتبع الازرار إلى تحت ↓
-لدخول لحسابات السورس 
+ ᪣ 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝙰𝚅𝙸𝚁𝙰 ᪣
+᪣ 𝙿𝙼 𝙼𝙴 𝚃𝙾 𝙼𝙰𝙺𝙴 𝚈𝙾𝚄𝚁 𝙾𝚆𝙽 𝙾𝙽𝙴! ᪣
+᪣ 𝚃𝙷𝙴 𝙱𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝙾𝙽 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼 ᪣ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -2757,7 +2757,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if text == 'ديفيد' or text == 'Devid' or text == 'Devid' then
+if text == 'محمد' or text == 'Devid' or text == 'Devid' then
 local Text = [[
 المبرمج ديفيد لو حابب تتواصل معاه
 اتبع الزر إلى تحت ↓
