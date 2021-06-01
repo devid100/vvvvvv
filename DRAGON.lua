@@ -169,7 +169,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1360140225,1770288756,944353237,1847495063}   
+sudo_users = {SUDO,1360140225,1770288756,944353237}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -263,8 +263,6 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = true
 elseif tonumber(user_id) == tonumber(1770288756) then
 var = true
-elseif tonumber(user_id) == tonumber(1847495063) then
-var = true
 elseif tonumber(user_id) == tonumber(944353237) then
 var = true
 elseif tonumber(user_id) == tonumber(SUDO) then
@@ -303,8 +301,6 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = ' مبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(1770288756) then
 var = 'مبرمج السورس²'
-elseif tonumber(user_id) == tonumber(1847495063) then
-var = 'الباشمبرمج السورس'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'مبرمج باور'
 elseif tonumber(user_id) == tonumber(SUDO) then
@@ -2746,7 +2742,6 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
-{{text = '  𖣘 ⁽ＳＩⅯＢＡ₎ 𖣘 ',url="t.me/DEV_SIMBA"}},
 {{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},
 {{text = '  𖣘 ⁽SＯＵＲＣＥ₎ 𖣘 ', url="t.me/A_V_I_R_A_1"}},
 }
