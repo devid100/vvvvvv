@@ -1192,7 +1192,7 @@ us = database:get(id_server..":SUDO:UserNameBot")
  agwa = database:get(id_server..":SUDO:USERNAME")
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '  𖣘 ⁽المطور₎ 𖣘 ',url="t.me/"..agwa}}و{{text = '  اضف البوت الي مجموعتك ',url="t.me/"..us.."?startgroup=start"}}}
+keyboard.inline_keyboard = {{{text = '  𖣘 ⁽المطور₎ 𖣘 ',url="t.me/"..agwa}},{{text = '  اضف البوت الي مجموعتك ',url="t.me/"..us.."?startgroup=start"}}}
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
@@ -11562,7 +11562,7 @@ local Text = [[
  agwa = database:get(id_server..":SUDO:USERNAME")
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '  𖣘 ⁽المطور₎ 𖣘 ',url="t.me/"..agwa}}و{{text = '  اضف البوت الي مجموعتك ',url="t.me/"..us.."?startgroup=start"}}}
+keyboard.inline_keyboard = {{{text = '  𖣘 ⁽المطور₎ 𖣘 ',url="t.me/"..agwa}},{{text = '  اضف البوت الي مجموعتك ',url="t.me/"..us.."?startgroup=start"}}}
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 --send(msg.chat_id_, msg.id_,'['..DRAGON_Msg[math.random(#DRAGON_Msg)]..']') 
 return false
