@@ -25,11 +25,18 @@ io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\na⩤━�
 local token = io.read()
 if token ~= '' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
+
 if res ~= 200 then
+
 print('\27[0;31m⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n التوكن غير صحيح تاكد منه ثم ارسله')
 else
 io.write('\27[0;31m تم حفظ التوكن بنجاح \na⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n27[0;39;49m')
 database:set(id_server..":token",token)
+data = json:decode(url)
+if   data.result   then
+database:set(id_server..":SUDO:UserNameBot",data.result.username)
+end
+
 end 
 else
 print('\27[0;35m⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n لم يتم حفظ التوكن ارسل لي التوكن الان')
@@ -1177,10 +1184,16 @@ local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
 if TEXT_SUDO then 
 send(msg.chat_id_, msg.id_,TEXT_SUDO)
 else
-tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
-end,nil)
+--tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
+--local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+--sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+--end,nil)
+us = database:get(id_server..":SUDO:UserNameBot")
+ agwa = database:get(id_server..":SUDO:USERNAME")
+ agwa = agwa:gsub("%@", "")
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '  𖣘 ⁽المطور₎ 𖣘 ',url="t.me/"..agwa}}و{{text = '  اضف البوت الي مجموعتك ',url="t.me/"..us.."?startgroup=start"}}}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 if text == 'الاحصائيات' and DevSoFi(msg) then 
@@ -11545,10 +11558,12 @@ local Text = [[
  
 ]]
 
- 
+ us = database:get(id_server..":SUDO:UserNameBot")
+ agwa = database:get(id_server..":SUDO:USERNAME")
+ agwa = agwa:gsub("%@", "")
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '  اضف البوت الي مجموعتك ',url="t.me/I_E_S9BOT?startgroup=start"}}}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/I_E_S9BOT&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+keyboard.inline_keyboard = {{{text = '  𖣘 ⁽المطور₎ 𖣘 ',url="t.me/"..agwa}}و{{text = '  اضف البوت الي مجموعتك ',url="t.me/"..us.."?startgroup=start"}}}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 --send(msg.chat_id_, msg.id_,'['..DRAGON_Msg[math.random(#DRAGON_Msg)]..']') 
 return false
 end
