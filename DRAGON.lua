@@ -25,9 +25,7 @@ io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\na⩤━�
 local token = io.read()
 if token ~= '' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
-
 if res ~= 200 then
-
 print('\27[0;31m⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n التوكن غير صحيح تاكد منه ثم ارسله')
 else
 io.write('\27[0;31m تم حفظ التوكن بنجاح \na⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n27[0;39;49m')
@@ -36,14 +34,11 @@ data = json:decode(url)
 if   data.result   then
 database:set(id_server..":SUDO:UserNameBot",data.result.username)
 end
-
 end 
 else
 print('\27[0;35m⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n لم يتم حفظ التوكن ارسل لي التوكن الان')
-end 
-os.execute('lua DRAGON.lua')
 end
-if not database:get(id_server..":SUDO:ID") then
+
 io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\na⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n\27[0;33;49m')
 local SUDOID = io.read()
 if SUDOID ~= '' then
@@ -52,9 +47,7 @@ database:set(id_server..":SUDO:ID",SUDOID)
 else
 print('\27[0;31m⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
 end 
-os.execute('lua DRAGON.lua')
-end
-if not database:get(id_server..":SUDO:USERNAME") then
+
 io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND ID FOR SIDO : \27[0;39;49m')
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
@@ -1188,13 +1181,7 @@ us = database:get(id_server..":SUDO:UserNameBot")
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},{{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}}}
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-
---send(msg.chat_id_, msg.id_,TEXT_SUDO)
 else
---tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
---local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
---sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
---end,nil)
 us = database:get(id_server..":SUDO:UserNameBot")
  agwa = database:get(id_server..":SUDO:USERNAME")
  agwa = agwa:gsub("%@", "")
