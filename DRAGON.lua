@@ -52,9 +52,7 @@ database:set(id_server..":SUDO:ID",SUDOID)
 else
 print('\27[0;31m⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
 end 
-os.execute('lua DRAGON.lua')
-end
-if not database:get(id_server..":SUDO:USERNAME") then
+
 io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND ID FOR SIDO : \27[0;39;49m')
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
