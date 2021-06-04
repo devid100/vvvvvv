@@ -25,18 +25,13 @@ io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\na⩤━�
 local token = io.read()
 if token ~= '' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
-
 if res ~= 200 then
-
 print('\27[0;31m⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n التوكن غير صحيح تاكد منه ثم ارسله')
 else
 io.write('\27[0;31m تم حفظ التوكن بنجاح \na⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n27[0;39;49m')
+local json = JSON.decode(url)
+database:set(id_server..":token_username",""..json.result.username)
 database:set(id_server..":token",token)
-data = json:decode(url)
-if   data.result   then
-database:set(id_server..":SUDO:UserNameBot",data.result.username)
-end
-
 end 
 else
 print('\27[0;35m⩤━━━━━━𝐀𝐕𝐈𝐑𝐀━━━━━━⩥\n لم يتم حفظ التوكن ارسل لي التوكن الان')
@@ -1180,7 +1175,7 @@ end
 if text == 'المطور' or text == 'مطور' then
 local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
 if TEXT_SUDO then 
-us = database:get(id_server..":SUDO:UserNameBot")
+us = database:get(id_server..":token_username")
  agwa = database:get(id_server..":SUDO:USERNAME")
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
@@ -1189,14 +1184,8 @@ keyboard.inline_keyboard = {
 {{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-
---send(msg.chat_id_, msg.id_,TEXT_SUDO)
 else
---tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
---local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
---sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
---end,nil)
-us = database:get(id_server..":SUDO:UserNameBot")
+us = database:get(id_server..":token_username")
  agwa = database:get(id_server..":SUDO:USERNAME")
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
@@ -11569,13 +11558,15 @@ local Text = [[
  
 ]]
 
- us = database:get(id_server..":SUDO:UserNameBot")
+ us = database:get(id_server..":token_username")
  agwa = database:get(id_server..":SUDO:USERNAME")
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},{{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}}}
+keyboard.inline_keyboard = {
+{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
+{{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}},
+}
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
---send(msg.chat_id_, msg.id_,'['..DRAGON_Msg[math.random(#DRAGON_Msg)]..']') 
 return false
 end
 
