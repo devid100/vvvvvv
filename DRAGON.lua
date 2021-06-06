@@ -2758,8 +2758,7 @@ keyboard.inline_keyboard = {
 {{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},
 {{text = '  𖣘 ⁽SＯＵＲＣＥ₎ 𖣘 ', url="t.me/A_V_I_R_A_1"}},
 }
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/bot_devid
-&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/A_V_I_R_A_1&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == "توكن البوت" or text == 'التوكن' and SudoBot(msg) then
@@ -2964,18 +2963,16 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 
 if text == '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷' then
-local Text = [[ 
+local msg_id = msg.id_/2097152/0.5
+local Text = [[
 🦇من أحسن السورسات على التليجرام سورس افايره🦇
 بجد سورس أمان جدا وفي مميزات جامده
 تع نصب بوتك عندنا لو محظور
 خش على تواصل هيدخلك لروم التواصل 
 ]]
-keyboard = {}  
-keyboard.inline_keyboard = { 
-{{text = '  𖣘 ⁽SＯＵＲＣＥ₎ 𖣘', url="t.me/A_V_I_R_A_1"}}, 
-} 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '  𖣘 ⁽SＯＵＲＣＥ₎ 𖣘', url="t.me/A_V_I_R_A_1"}},}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/bot_devid&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'بوت التواصل' then
@@ -14429,7 +14426,7 @@ local Teext =[[
 🦇قول + كلمه
 ◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷
 🦇اسم البوت + الامر ↑↓
-═───═𝗦𝗢𝗢𝗡 𝗣𝗟??𝗦═───═
+◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷
 🦇بوسه بالرد 
 🦇مصه بالرد
 🦇رزله بالرد 
