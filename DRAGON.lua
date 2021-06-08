@@ -1680,7 +1680,7 @@ send(msg.chat_id_, msg.id_,'['..t..']')
 end,nil) 
 end 
 end
---------------------------------------------------------------------------------------------------------------
+-----------------------------------------------¹𝐀𝐕𝐈𝐑𝐀¹---------------------------------------------------------------
 if msg.content_.photo_ then  
 if database:get(bot_id..'Change:Chat:Photo'..msg.chat_id_..':'..msg.sender_user_id_) then 
 if msg.content_.photo_.sizes_[3] then  
@@ -1703,7 +1703,7 @@ end, nil)
 database:del(bot_id..'Change:Chat:Photo'..msg.chat_id_..':'..msg.sender_user_id_) 
 end   
 end
---------------------------------------------------------------------------------------------------------------
+-----------------------------------------------¹𝐀𝐕𝐈𝐑𝐀¹---------------------------------------------------------------
 if database:get(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_," 𖠪 تم الغاء وضع الوصف")
@@ -1715,7 +1715,7 @@ https.request('https://api.telegram.org/bot'..token..'/setChatDescription?chat_i
 send(msg.chat_id_, msg.id_,' 𖠪 تم تغيير وصف الجروب')
 return false  
 end 
---------------------------------------------------------------------------------------------------------------
+-----------------------------------------------¹𝐀𝐕𝐈𝐑𝐀¹---------------------------------------------------------------
 if database:get(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_," 𖠪 تم الغاء حفظ الترحيب")
@@ -2745,22 +2745,21 @@ local Text = [[
  المبرمج دونجول
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},}
+keyboard.inline_keyboard = {{{text = '  𓌹 ˹ＤＯＮＧＯＬ¹˼ 𓌺 ',url="t.me/UU_DON"}},}
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/UU_DON&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 local msg_id = msg.id_/2097152/0.5
 local Text = [[
- ᪣ 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝙰𝚅𝙸𝚁𝙰 ᪣
+᪣ 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝙰𝚅𝙸𝚁𝙰 ᪣
 ᪣ 𝙿𝙼 𝙼𝙴 𝚃𝙾 𝙼𝙰𝙺𝙴 𝚈𝙾𝚄𝚁 𝙾𝚆𝙽 𝙾𝙽𝙴! ᪣
 ᪣ 𝚃𝙷𝙴 𝙱𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝙾𝙽 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼 ᪣ 
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
-{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},
-{{text = '  𖣘 ⁽SＯＵＲＣＥ₎ 𖣘 ', url="t.me/A_V_I_R_A_1"}},
+{{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/de_vi_d"},{text = ' ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/UU_DON"}},
+{{text = '  ◍ M𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻𝚂 𖣌 ', url="t.me/A_V_I_R_A_1"}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/A_V_I_R_A_1&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
