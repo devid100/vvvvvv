@@ -676,7 +676,7 @@ end
 function Addmp3(msg,chat,kkl,ffrr)
 local eer = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..kkl)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..eer.result.file_path,ffrr) 
-sendAudio(msg.chat_id_,msg.id_,'./'..ffrr,"🎼 𝐒𝐎𝐔𝐑𝐂𝐄⁦ 𝐀𝐕𝐈𝐑𝐀")  
+sendAudio(msg.chat_id_,msg.id_,'./'..ffrr,"🎼 ¹𝐀𝐕𝐈𝐑𝐀¹")  
 os.execute('rm -rf ./'..ffrr) 
 end
 function Addsticker(msg,chat,Sd,rre)
@@ -2752,8 +2752,11 @@ end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 local msg_id = msg.id_/2097152/0.5
 local Text = [[
-᪣ 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝙰𝚅𝙸𝚁𝙰 ᪣
-᪣ 𝙿𝙼 𝙼𝙴 𝚃𝙾 𝙼𝙰𝙺𝙴 𝚈𝙾𝚄𝚁 𝙾𝚆𝙽 𝙾𝙽𝙴! ᪣
+  ╭━━━━━━❲¹𝐀𝐕𝐈𝐑𝐀¹❳━━━━━━╮
+  ☞𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝙰𝚅𝙸𝚁𝙰 
+  ☞ 𝙿𝙼 𝙼𝙴 𝚃𝙾 𝙼𝙰𝙺𝙴 𝚈𝙾𝚄𝚁 𝙾𝚆𝙽 𝙾𝙽𝙴
+  ☞ 𝚃𝙷𝙴 𝙱𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝙾𝙽 
+  ╰━━━━━━❲¹𝐀𝐕𝐈𝐑𝐀¹❳━━━━━━╯
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -9066,7 +9069,7 @@ local text =
 ' }\n'..' 𖠪  الايدي ← { '..idgp..
 ' }\n'..' 𖠪  الايدي بالصوره ← { '..idph..
 ' }\n'..' 𖠪  الرفع ← { '..setadd..
-' }\n'..' 𖠪  الحظر ← { '..banm..' }\n\n◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n 𖠪 قناة سورس افايره ↓\n [ 𝐒𝐎𝐔𝐑𝐂𝐄⁦ 𝐀𝐕𝐈𝐑𝐀](t.me/A_V_I_R_A_1) \n'
+' }\n'..' 𖠪  الحظر ← { '..banm..' }\n\n◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n 𖠪 قناة سورس افايره ↓\n [ ¹𝐀𝐕𝐈𝐑𝐀¹](t.me/A_V_I_R_A_1) \n'
 send(msg.chat_id_, msg.id_,text)     
 end
 if text ==('تثبيت') and msg.reply_to_message_id_ ~= 0 and Mod(msg) then  
@@ -10786,7 +10789,7 @@ if audios.Info == true then
 local Text ='𖠪تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '𝐒𝐎𝐔𝐑𝐂𝐄⁦ 𝐀𝐕𝐈𝐑𝐀.',url="t.me/A_V_I_R_A_1"}},
+{{text = '¹𝐀𝐕𝐈𝐑𝐀¹.',url="t.me/A_V_I_R_A_1"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -13749,7 +13752,7 @@ end
 local Text =[[
 اتبع الازرار تحت ⇣
 واستمتع للأوامر 🕹️
-🦇[𝐒𝐎𝐔𝐑𝐂𝐄⁦ 𝐀𝐕𝐈𝐑𝐀 ](t.me/A_V_I_R_A_1)🦇
+🦇[¹𝐀𝐕𝐈𝐑𝐀¹ ](t.me/A_V_I_R_A_1)🦇
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -13789,7 +13792,7 @@ local Text =[[
  🦇 مرحب بيك في الالعاب 🦇 
  اتبع الازرار إلى تحت في الاسفل ↓
 ◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷
-[ 𝐒𝐎𝐔𝐑𝐂𝐄⁦ 𝐀𝐕𝐈𝐑𝐀 ](t.me/A_V_I_R_A_1)
+[ ¹𝐀𝐕𝐈𝐑𝐀¹ ](t.me/A_V_I_R_A_1)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -14792,7 +14795,7 @@ local Teext =[[
  🦇 مرحب بيك في الالعاب 🦇 
  اتبع الازرار إلى تحت في الاسفل ↓
 ◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷
-[ 𝐒𝐎𝐔𝐑𝐂𝐄⁦ 𝐀𝐕𝐈𝐑𝐀 ](t.me/A_V_I_R_A_1)
+[ ¹𝐀𝐕𝐈𝐑𝐀¹ ](t.me/A_V_I_R_A_1)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
