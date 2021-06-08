@@ -52,7 +52,7 @@ io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND I
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
-database:set(id_server..":SUDO:USERNAME",'@'..SUDOUSERNAME)
+database:set(id_server..":SUDO:USERNAME",'@'..agwa)
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور :')
 end 
@@ -1180,7 +1180,7 @@ us = database:get(id_server..":token_username")
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '  مطور البوت 𖠕 ',url="t.me/"..SUDOUSERNAME}},
+{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
 {{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -1190,7 +1190,7 @@ us = database:get(id_server..":token_username")
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '  مطور البوت 𖠕 ',url="t.me/"..SUDOUSERNAME}},
+{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
 {{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -11562,7 +11562,7 @@ local Text = [[
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '  مطور البوت 𖠕 ',url="t.me/"..SUDOUSERNAME}},
+{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
 {{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
