@@ -1177,7 +1177,7 @@ local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
 if TEXT_SUDO then 
 us = database:get(id_server..":token_username")
  agwa = database:get(id_server..":SUDO:USERNAME")
- agwa = agwa:gsub("%@", "")
+-- agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
@@ -1187,7 +1187,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. ms
 else
 us = database:get(id_server..":token_username")
  agwa = database:get(id_server..":SUDO:USERNAME")
- agwa = agwa:gsub("%@", "")
+ --agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
