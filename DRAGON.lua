@@ -24,14 +24,14 @@ if not database:get(id_server..":token") then
 io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\na◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n\27')
 local token = io.read()
 if token ~= '' then
-local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe') 
-local data = json:decode(url)
-if res ~= 200 then 
+local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
+if res ~= 200 then
 print('\27[0;31m◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n التوكن غير صحيح تاكد منه ثم ارسله')
 else
 io.write('\27[0;31m تم حفظ التوكن بنجاح \na◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n27[0;39;49m')
+local json = JSON.decode(url)
+database:set(id_server..":token_username",""..json.result.username)
 database:set(id_server..":token",token)
-database:set(id_server..":token_username",""..data.result.username)
 end 
 else
 print('\27[0;35m◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n لم يتم حفظ التوكن ارسل لي التوكن الان')
@@ -1175,21 +1175,22 @@ end
 if text == 'المطور' or text == 'مطور' then
 local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
 if TEXT_SUDO then 
-local us = database:get(id_server..":token_username")
---us = database:get(id_server..":token_username")
---agwa = database:get(id_server..":SUDO:USERNAME")
+us = database:get(id_server..":token_username")
+ agwa = database:get(id_server..":SUDO:USERNAME")
 -- agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
+{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
 {{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-local us = database:get(id_server..":token_username")
---agwa = database:get(id_server..":SUDO:USERNAME")
---agwa = agwa:gsub("%@", "")
+us = database:get(id_server..":token_username")
+ agwa = database:get(id_server..":SUDO:USERNAME")
+ --agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
+{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
 {{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}},
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
