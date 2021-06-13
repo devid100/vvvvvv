@@ -2763,14 +2763,14 @@ end
 end,nil)   
 end
 
-if text == 'ديفيد' or text == 'ديفد' then
+if text == 'هارفي' or text == 'عبدلله' then
 local msg_id = msg.id_/2097152/0.5
 local Text = [[
- المبرمج ديفيد 
+ المبرمج هارفي 
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '  𓌹 ˹ＤＥＶＩＤ¹˼ 𓌺 ',url="t.me/de_vi_d"}},}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/de_vi_d&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+keyboard.inline_keyboard = {{{text = '  𓌹 ˹ＨＡＲＶＥＹ¹˼ 𓌺 ',url="t.me/de_vi_d"}},}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/hr_ba_1&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'دونجول' or text == "دونجل" then
