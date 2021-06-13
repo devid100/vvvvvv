@@ -1083,12 +1083,13 @@ memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '⇗ نظام التشغيل ⇖•\n*←← '"$linux_version"'*' 
-echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ الذاكره العشوائيه } ⇎\n*←← '"$memUsedPrc"'*'
-echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ وحـده الـتـخـزيـن } ⇎\n*←← '"$HardDisk"'*'
-echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ الـمــعــالــج } ⇎\n*←← '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ الــدخــول } ⇎\n*←← '`whoami`'*'
-echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ مـده تـشغيـل الـسـيـرفـر }⇎\n*←← '"$uptime"'*'
+echo '◈ نظام التشغيل ◈\n⇎ *'"$linux_version"'*' 
+echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ الذاكره العشوائيه } \n⇎ *'"$memUsedPrc"'*'
+echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ وحـده الـتـخـزيـن } \n⇎ *'"$HardDisk"'*'
+echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ الـمــعــالــج } \n⇎ *'"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ موقـع الـسـيـرفـر }\n⇎ *'`curl https://devdeiveddev.ml/IP/Location.php`'*'
+echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ الــدخــول } \n⇎ *'`whoami`'*'
+echo '◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n𖠪✔{ مـده تـشغيـل الـسـيـرفـر }\n⇎ *'"$uptime"'*'
 ]]):read('*all'))  
 end
 
@@ -1292,6 +1293,39 @@ database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_i
 send(msg.chat_id_, msg.id_," 𖠪 ارسل لي التوجيه الان")
 return false
 end 
+if text == 'جلب المشتركين' and DevSoFi(msg) then 
+local list = database:smembers(bot_id..'User_Bot') 
+local t = '{"users":['   
+for k,v in pairs(list) do 
+if k == 1 then 
+t =  t..'"'..v..'"' 
+else 
+t =  t..',"'..v..'"' 
+end 
+end 
+t = t..']}' 
+local File = io.open('./users.json', "w") 
+File:write(t) 
+File:close() 
+sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './users.json', ' عدد المشتركين { '..#list..'}') 
+end
+if text == 'رفع المشتركين' and DevSoFi(msg) then 
+function by_reply(extra, result, success)    
+if result.content_.document_ then  
+local ID_FILE = result.content_.document_.document_.persistent_id_  
+local File_Name = result.content_.document_.file_name_ 
+local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) )  
+download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name)  
+local info_file = io.open('./users.json', "r"):read('*a') 
+local users = JSON.decode(info_file) 
+for k,v in pairs(users.users) do 
+database:sadd(bot_id..'User_Bot',v)  
+end 
+send(msg.chat_id_,msg.id_,'تم رفع المشتركين ') 
+end    
+end 
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil) 
+end
 if text == 'جلب نسخه الاحتياطيه' and DevSoFi(msg) then 
 GetFile_Bot(msg)
 end
@@ -3064,6 +3098,39 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
+end
+if text == 'جلب المشتركين' and DevSoFi(msg) then 
+local list = database:smembers(bot_id..'User_Bot') 
+local t = '{"users":['   
+for k,v in pairs(list) do 
+if k == 1 then 
+t =  t..'"'..v..'"' 
+else 
+t =  t..',"'..v..'"' 
+end 
+end 
+t = t..']}' 
+local File = io.open('./users.json', "w") 
+File:write(t) 
+File:close() 
+sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './users.json', ' عدد المشتركين { '..#list..'}') 
+end
+if text == 'رفع المشتركين' and DevSoFi(msg) then 
+function by_reply(extra, result, success)    
+if result.content_.document_ then  
+local ID_FILE = result.content_.document_.document_.persistent_id_  
+local File_Name = result.content_.document_.file_name_ 
+local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) )  
+download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name)  
+local info_file = io.open('./users.json', "r"):read('*a') 
+local users = JSON.decode(info_file) 
+for k,v in pairs(users.users) do 
+database:sadd(bot_id..'User_Bot',v)  
+end 
+send(msg.chat_id_,msg.id_,'تم رفع المشتركين ') 
+end    
+end 
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil) 
 end
 if text == 'جلب نسخه الاحتياطيه' and DevSoFi(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
