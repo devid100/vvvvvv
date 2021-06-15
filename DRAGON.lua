@@ -3975,6 +3975,23 @@ elseif text == 'فتح التكرار' and Mod(msg) then
 database:hdel(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood")  
 send(msg.chat_id_, msg.id_,' ◉ تم فتح التكرار')
 end
+if text == 'تفعيل الحمايه' and CoSu(msg) and msg.reply_to_message_id_ == 0 then  
+database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'kick')   
+database:set(bot_id..'Bot:Id:Photo'..msg.chat_id_,true)  
+database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood",'kick')   
+database:set(bot_id.."lock:Link"..msg.chat_id_,'del')   
+database:set(bot_id.."lock:forward"..msg.chat_id_,'del')   
+database:set(bot_id.."lock:Sticker"..msg.chat_id_,'del')   
+database:set(bot_id.."lock:Animation"..msg.chat_id_,'del')   
+database:set(bot_id.."lock:Video"..msg.chat_id_,'del')   
+database:set(bot_id..'lock:Fars'..msg.chat_id_,true)  
+database:set(bot_id..'lock:Fshar'..msg.chat_id_,true)  
+database:set(bot_id..'lock:edit'..msg.chat_id_,true)  
+database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true) 
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)  
+send(msg.chat_id_, msg.id_,'\n☉┇تم قفل البوتات بالطرد\n☉┇تم وضع الايدي بدون صوره\n☉┇تم قفل التكرار بالطرد\n☉┇تم قفل الروابط\n☉┇تم قفل التوجيه\n☉┇تم قفل الملصقات\n☉┇تم قفل المتحركه\n☉┇تم قفل الفيديو\n☉┇تم قفل السب\n☉┇تم قفل التعديل\n☉┇تم قفل الفارسيه\n☉┇تم قفل التفليش\n\nتم تفعيل الحمايه بواسطه »>['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'A_V_I_R_A_1')..')')   
+end,nil) 
+end
 --------------------------------------------------------------------------------------------------------------
 if text == 'تحديث' and DevSoFi(msg) then    
 dofile('DRAGON.lua')  
