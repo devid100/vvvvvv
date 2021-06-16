@@ -78,7 +78,7 @@ create_config_auto()
 botUserName = database:get(id_server..":token_username")
 token = database:get(id_server..":token")
 SUDO = database:get(id_server..":SUDO:ID")
-UserName = database:get(id_server..":SUDO:USERNAME"),
+UserName = database:get(id_server..":SUDO:USERNAME")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
 print('\n\27[1;34m doneeeeeeee senddddddddddddd :')
 file = io.open("DRAGON", "w")  
