@@ -78,6 +78,7 @@ create_config_auto()
 botUserName = database:get(id_server..":token_username")
 token = database:get(id_server..":token")
 SUDO = database:get(id_server..":SUDO:ID")
+UserName = database:get(id_server..":SUDO:USERNAME"),
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
 print('\n\27[1;34m doneeeeeeee senddddddddddddd :')
 file = io.open("DRAGON", "w")  
@@ -1186,7 +1187,7 @@ if text == 'المطور' or text == 'مطور' then
 local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
 if TEXT_SUDO then 
 us = dofile("./vvvvvvInfo.lua").botUserName
- agwa = database:get(id_server..":SUDO:USERNAME")
+ agwa = dofile("./vvvvvvInfo.lua").UserName
 -- agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -1196,7 +1197,7 @@ keyboard.inline_keyboard = {
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 else
 us = dofile("./vvvvvvInfo.lua").botUserName
- agwa = database:get(id_server..":SUDO:USERNAME")
+ agwa = dofile("./vvvvvvInfo.lua").UserName
  --agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11640,7 +11641,7 @@ local Text = [[
 ]]
 
  us = dofile("./vvvvvvInfo.lua").botUserName
- agwa = database:get(id_server..":SUDO:USERNAME")
+ agwa = dofile("./vvvvvvInfo.lua").UserName
  agwa = agwa:gsub("%@", "")
 keyboard = {} 
 keyboard.inline_keyboard = {
