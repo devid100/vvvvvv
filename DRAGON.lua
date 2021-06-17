@@ -1183,29 +1183,22 @@ t = "◉ لا يوجد مطورين ثانويين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'المطور' or text == 'مطور' then
-local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
-if TEXT_SUDO then 
-us = dofile("./vvvvvvInfo.lua").botUserName
- agwa = dofile("./vvvvvvInfo.lua").UserName
--- agwa = agwa:gsub("%@", "")
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
-{{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}},
-}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-else
-us = dofile("./vvvvvvInfo.lua").botUserName
- agwa = dofile("./vvvvvvInfo.lua").UserName
- --agwa = agwa:gsub("%@", "")
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
-{{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..us.."?startgroup=start"}},
-}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..us.."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
+if text == 'المطور' or text == 'مطور' then 
+tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result)  
+ us = dofile("./vvvvvvInfo.lua").botUserName 
+ local msg_id = msg.id_/2097152/0.5 
+local Text = [[ 
+ المطور 
+]] 
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = '❲'..result.first_name_..'❳',url="t.me/"..result.username_}}, 
+{{text = 'اضف البوت الي مجموعتك 𖠕' ,url="t.me/"..us.."?startgroup=start"}}, 
+} 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end,nil) 
+ 
+ 
 end
 if text == 'الاحصائيات' and DevSoFi(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
