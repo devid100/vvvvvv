@@ -1185,20 +1185,17 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == 'المطور' or text == 'مطور' then 
 tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result)  
- us = dofile("./vvvvvvInfo.lua").botUserName 
- local msg_id = msg.id_/2097152/0.5 
+local msg_id = msg.id_/2097152/0.5 
 local Text = [[ 
  المطور 
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {{text = '❲'..result.first_name_..'❳',url="t.me/"..result.username_}}, 
-{{text = 'اضف البوت الي مجموعتك 𖠕' ,url="t.me/"..us.."?startgroup=start"}}, 
+{{text = 'اضف البوت الي مجموعتك 𖠕' ,url="t.me/"..dofile("./vvvvvvInfo.lua").botUserName.."?startgroup=start"}}, 
 } 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end,nil) 
- 
- 
+end,nil)
 end
 if text == 'الاحصائيات' and DevSoFi(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
@@ -9281,16 +9278,19 @@ send(msg.chat_id_, msg.id_," ❌ تم تعطيل الرابط")
 return false end
 end
 
-if text == 'المطور' or text == 'مطور' then
-local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
-if TEXT_SUDO then 
-send(msg.chat_id_, msg.id_,TEXT_SUDO)
-else
-tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+if text == 'المطور' or text == 'مطور' then 
+tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result)  
+local msg_id = msg.id_/2097152/0.5 
+local Text = [[ 
+ المطور 
+]] 
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = '❲'..result.first_name_..'❳',url="t.me/"..result.username_}}, 
+{{text = 'اضف البوت الي مجموعتك 𖠕' ,url="t.me/"..dofile("./vvvvvvInfo.lua").botUserName.."?startgroup=start"}}, 
+} 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end,nil)
-end
 end
 ---------------------
 
