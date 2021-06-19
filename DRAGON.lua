@@ -13932,16 +13932,6 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-
-if text and text:match("^انطق (.*)$") then  
-local textntk = text:match("^انطق (.*)$")  
-UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(textntk)..'')  
-Antk = JSON.decode(UrlAntk)  
-if UrlAntk.ok ~= false then  
-download_to_file("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",Antk.result.translate..'.mp3')   
-local curlm = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. msg.sender_user_id_ ..'" -F "document=@'..''..textntk..'.mp3'..'"' io.popen(curlm)
-end  
-end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
 if text == "تعطيل الزخرفه" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '◉تم تعطيل الزخرفه')
@@ -15462,7 +15452,7 @@ end -- end callback dev.mr sofi
 
 
 
-�ب دا 😒","فعلا بتتكلم صح🤗","يجدع قول كلام غير دا😹","حصل اوماال😹💔","طب عيني ف عينك كدا 👀","انت صح🙂♥",};
+�ب دا 😒","فعلا بتتكلم صح🤗","يجدع قول كلام غير دا😹","حصل اوماال😹💔","طب عيني ف عينك كدا 👀","انت صح🙂♥",};
 sendnuj = numj[math.random(#numj)]
 xl = ' ※ '..text..' ★ \n '..sendnuj..'.'
 send(msg.chat_id_, msg.id_,xl) 
