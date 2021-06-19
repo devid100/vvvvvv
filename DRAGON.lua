@@ -13932,6 +13932,15 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
+if text and text:match("^انطق (.*)$") then  
+local textntk = text:match("^انطق (.*)$")  
+UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(textntk)..'')  
+Antk = JSON.decode(UrlAntk)  
+if UrlAntk.ok ~= false then  
+download_to_file("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",Antk.result.translate..'.mp3')   
+local curlm = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. msg.sender_user_id_ ..'" -F "document=@'..''..textntk..'.mp3'..'"' io.popen(curlm)
+end  
+end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
 if text == "تعطيل الزخرفه" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '◉تم تعطيل الزخرفه')
@@ -15361,6 +15370,347 @@ if text then
 local DRAGON1_Msg = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..result.chat_id_)   
 if DRAGON1_Msg then    
 send(msg.chat_id_, msg.id_," ◉ "..DRAGON1_Msg)
+DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
+return false
+end
+end
+end
+end,nil)
+------------------------------------------------------------------------
+
+elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then 
+local list = database:smembers(bot_id.."User_Bot") 
+for k,v in pairs(list) do 
+tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data) end,nil) 
+end         
+local list = database:smembers(bot_id..'Chek:Groups') 
+for k,v in pairs(list) do 
+tdcli_function({ID='GetChat',chat_id_ = v
+},function(arg,data)
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
+database:srem(bot_id..'Chek:Groups',v)  
+tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=v,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
+end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
+database:srem(bot_id..'Chek:Groups',v)  
+end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
+database:srem(bot_id..'Chek:Groups',v)  
+end
+if data and data.code_ and data.code_ == 400 then
+database:srem(bot_id..'Chek:Groups',v)  
+end
+if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusEditor" then
+database:sadd(bot_id..'Chek:Groups',v)  
+end 
+end,nil)
+end
+
+elseif (data.ID == "UpdateMessageSendSucceeded") then
+local msg = data.message_
+local text = msg.content_.text_
+local Get_Msg_Pin = database:get(bot_id..'Msg:Pin:Chat'..msg.chat_id_)
+if Get_Msg_Pin ~= nil then
+if text == Get_Msg_Pin then
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) if d.ID == 'Ok' then;database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_);end;end,nil)   
+elseif (msg.content_.sticker_) then 
+if Get_Msg_Pin == msg.content_.sticker_.sticker_.persistent_id_ then
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
+end
+end
+if (msg.content_.animation_) then 
+if msg.content_.animation_.animation_.persistent_id_ == Get_Msg_Pin then
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
+end
+end
+if (msg.content_.photo_) then
+if msg.content_.photo_.sizes_[0] then
+id_photo = msg.content_.photo_.sizes_[0].photo_.persistent_id_
+end
+if msg.content_.photo_.sizes_[1] then
+id_photo = msg.content_.photo_.sizes_[1].photo_.persistent_id_
+end
+if msg.content_.photo_.sizes_[2] then
+id_photo = msg.content_.photo_.sizes_[2].photo_.persistent_id_
+end	
+if msg.content_.photo_.sizes_[3] then
+id_photo = msg.content_.photo_.sizes_[3].photo_.persistent_id_
+end
+if id_photo == Get_Msg_Pin then
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'Msg:Pin:Chat'..msg.chat_id_) end,nil)   
+end
+end
+end
+
+
+end -- end new msg dev.mr sofi 
+end -- end callback dev.mr sofi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+�ب دا 😒","فعلا بتتكلم صح🤗","يجدع قول كلام غير دا😹","حصل اوماال😹💔","طب عيني ف عينك كدا 👀","انت صح🙂♥",};
+sendnuj = numj[math.random(#numj)]
+xl = ' ※ '..text..' ★ \n '..sendnuj..'.'
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":rkko_Bots"..msg.chat_id_)
+end
+if text == "نسبه الانوثه" or text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
+if not database:get(bot_id..'Cick:ano'..msg.chat_id_) then
+database:set(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_,"sendanoe")
+Text = 'ارسل اسم الشخص الذي تريد قياس نسبه انوثتها \n مثال روان'
+send(msg.chat_id_, msg.id_,Text) 
+end
+end
+if text and text ~="نسبه الانوثه" and database:get(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
+numj = {"10","20","30","35","75","34","66","82","23","19","55","80","63","32","27","89","99","98","79","100","8","3","6","0",};
+sendnuj = numj[math.random(#numj)]
+xl = 'نسبه الانوثه '..text..' هي : \n '..sendnuj..'%'
+send(msg.chat_id_, msg.id_,xl) 
+database:del(bot_id..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.sender_user_id_ and Muted_User(msg.chat_id_,msg.sender_user_id_) then 
+DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
+return false  
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.sender_user_id_ and Ban_User(msg.chat_id_,msg.sender_user_id_) then 
+chat_kick(msg.chat_id_,msg.sender_user_id_) 
+DeleteMessage(msg.chat_id_, {[0] = msg.id_}) 
+return false  
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.content_ and msg.content_.members_ and msg.content_.members_[0] and msg.content_.members_[0].id_ and Ban_User(msg.chat_id_,msg.content_.members_[0].id_) then 
+chat_kick(msg.chat_id_,msg.content_.members_[0].id_) 
+DeleteMessage(msg.chat_id_, {[0] = msg.id_}) 
+return false
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.sender_user_id_ and GBan_User(msg.sender_user_id_) then 
+chat_kick(msg.chat_id_,msg.sender_user_id_) 
+DeleteMessage(msg.chat_id_, {[0] = msg.id_}) 
+return false 
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.sender_user_id_ and Gmute_User(msg.sender_user_id_) then 
+DeleteMessage(msg.chat_id_, {[0] = msg.id_}) 
+return false 
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.content_ and msg.content_.members_ and msg.content_.members_[0] and msg.content_.members_[0].id_ and GBan_User(msg.content_.members_[0].id_) then 
+chat_kick(msg.chat_id_,msg.content_.members_[0].id_) 
+DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
+end 
+--------------------------------------------------------------------------------------------------------------
+if msg.content_.ID == "MessageChatAddMembers" then  
+database:set(bot_id.."Who:Added:Me"..msg.chat_id_..':'..msg.content_.members_[0].id_,msg.sender_user_id_)
+local mem_id = msg.content_.members_  
+local Bots = database:get(bot_id.."lock:Bot:kick"..msg.chat_id_) 
+for i=0,#mem_id do  
+if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Mod(msg) and Bots == "kick" then   
+https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
+DRAGON = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
+local Json_Info = JSON.decode(DRAGON)
+if Json_Info.ok == true and #mem_id == i then
+local Msgs = {}
+Msgs[0] = msg.id_
+msgs_id = msg.id_-1048576
+for i=1 ,(150) do 
+msgs_id = msgs_id+1048576
+table.insert(Msgs,msgs_id)
+end
+tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data);MsgsDel = {};for i=0 ,data.total_count_ do;if not data.messages_[i] then;if not MsgsDel[0] then;MsgsDel[0] = Msgs[i];end;table.insert(MsgsDel,Msgs[i]);end;end;if MsgsDel[0] then;tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil);end;end,{chat_id_=msg.chat_id_})
+tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID,filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_mod(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) end, nil) end end end,nil)  
+end
+end     
+end
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.content_.ID == "MessageChatAddMembers" then  
+local mem_id = msg.content_.members_  
+local Bots = database:get(bot_id.."lock:Bot:kick"..msg.chat_id_) 
+for i=0,#mem_id do  
+if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Mod(msg) and Bots == "del" then   
+DRAGON = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
+local Json_Info = JSON.decode(DRAGON)
+if Json_Info.ok == true and #mem_id == i then
+local Msgs = {}
+Msgs[0] = msg.id_
+msgs_id = msg.id_-1048576
+for i=1 ,(150) do 
+msgs_id = msgs_id+1048576
+table.insert(Msgs,msgs_id)
+end
+tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data);MsgsDel = {};for i=0 ,data.total_count_ do;if not data.messages_[i] then;if not MsgsDel[0] then;MsgsDel[0] = Msgs[i];end;table.insert(MsgsDel,Msgs[i]);end;end;if MsgsDel[0] then;tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil);end;end,{chat_id_=msg.chat_id_})
+tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID,filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_mod(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) end, nil) end end end,nil)  
+end
+end     
+end
+end
+if msg.content_.ID == 'MessagePinMessage' then
+if Constructor(msg) then 
+database:set(bot_id..'Pin:Id:Msg'..msg.chat_id_,msg.content_.message_id_)
+else
+local Msg_Pin = database:get(bot_id..'Pin:Id:Msg'..msg.chat_id_)
+if Msg_Pin and database:get(bot_id.."lockpin"..msg.chat_id_) then
+PinMessage(msg.chat_id_,Msg_Pin)
+end
+end
+end
+--------------------------------------------------------------------------------------------------------------
+if msg.content_.ID == "MessageChatDeletePhoto" or msg.content_.ID == "MessageChatChangePhoto" or msg.content_.ID == 'MessagePinMessage' or msg.content_.ID == "MessageChatJoinByLink" or msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == 'MessageChatChangeTitle' or msg.content_.ID == "MessageChatDeleteMember" then   
+if database:get(bot_id..'lock:tagservr'..msg.chat_id_) then  
+DeleteMessage(msg.chat_id_,{[0] = msg.id_})       
+return false
+end    
+end   
+--------------------------------------------------------------------------------------------------------------
+SourceDRAGON(data.message_,data)
+plugin_Dragon(data.message_)
+--------------------------------------------------------------------------------------------------------------
+if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+if data.username_ then
+database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
+end
+--------------------------------------------------------------------------------------------------------------
+if tonumber(data.id_) == tonumber(bot_id) then
+return false
+end
+end,nil)   
+end
+elseif (data.ID == "UpdateMessageEdited") then
+local msg = data
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
+database:incr(bot_id..'edits'..result.chat_id_..result.sender_user_id_)
+local Text = result.content_.text_
+if database:get(bot_id.."lock_edit_med"..msg.chat_id_) and not Text and not BasicConstructor(result) then
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+local username = data.username_
+local name = data.first_name_
+local iduser = data.id_
+local users = ('[@'..data.username_..']' or iduser)
+local list = database:smembers(bot_id..'Constructor'..msg.chat_id_)
+t = "\n ✯ شخص ما يحاول تعديل الميديا \n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = " ✯ لا يوجد ادمن"
+end
+send(msg.chat_id_,0,''..t..'\n•═════•| 𝙼𝚄𝚆𝙻𝙰𝙽𝙰 |•═════•\n ✯ تم التعديل على الميديا\n ✯ الشخص الي قام بالتعديل\n ✯ ايدي الشخص ◂ '..result.sender_user_id_..'\n ✯ معرف الشخص⇐{ '..users..' }') 
+end,nil)
+DeleteMessage(msg.chat_id_,{[0] = msg.message_id_}) 
+end
+local text = result.content_.text_
+if not Mod(result) then
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
+if database:get(bot_id.."lock:Link"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end 
+end
+------------------------------------------------------------------------
+if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
+if database:get(bot_id.."lock:Link"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end
+------------------------------------------------------------------------
+if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
+if database:get(bot_id.."lock:Link"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+if text and text:match("[hH][tT][tT][pP][sT]") or text and text:match("[tT][eE][lL][eE][gG][rR][aA].[Pp][Hh]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa].[Pp][Hh]") then
+if database:get(bot_id.."lock:Link"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+if text and text:match("(.*)(@)(.*)") then
+if database:get(bot_id.."lock:user:name"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end
+------------------------------------------------------------------------
+if text and text:match("@") then
+if database:get(bot_id.."lock:user:name"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+if text and text:match("(.*)(#)(.*)") then
+if database:get(bot_id.."lock:hashtak"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+if text and text:match("#") then
+if database:get(bot_id.."lock:user:name"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end  
+end 
+------------------------------------------------------------------------
+local DRAGONAbot = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..result.chat_id_)   
+if DRAGONAbot then    
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+if data.username_ ~= false then
+send(msg.chat_id_,0," ✯ العضو : {["..data.first_name_.."](T.ME/"..data.username_..")}\n ✯ ["..DRAGONAbot.."] \n") 
+else
+send(msg.chat_id_,0," ✯ العضو : {["..data.first_name_.."](T.ME/MaWllana1)}\n ✯ ["..DRAGONAbot.."] \n") 
+end
+end,nil)   
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end
+------------------------------------------------------------------------
+if text and text:match("/") then
+if database:get(bot_id.."lock:Cmd"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end 
+end 
+if text and text:match("(.*)(/)(.*)") then
+if database:get(bot_id.."lock:Cmd"..msg.chat_id_) then
+DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
+return false
+end 
+end
+------------------------------------------------------------------------
+if text then
+local DRAGON1_Msg = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..result.chat_id_)   
+if DRAGON1_Msg then    
+send(msg.chat_id_, msg.id_," ✯ "..DRAGON1_Msg)
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
 end
