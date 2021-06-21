@@ -9316,24 +9316,16 @@ send(msg.chat_id_, msg.id_," ◉ تم تعطيل الصوره")
 return false end
 end
 if text == "الرابط" then 
-local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
-if not status_Link then
-send(msg.chat_id_, msg.id_," ✶ الرابط معطل") 
-return false  
-end
-local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
-if link then                              
-send(msg.chat_id_,msg.id_,'\n⩹━━━━⊶❲¹𝐀𝐕𝐈𝐑𝐀¹❳⊷━━━━⩺\n ['..link..']')                          
-else                
-local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
+local linkgpp = json:decode(https.request( https://api.telegram.org/bot ..token.. /exportChatInviteLink?chat_id= ..msg.chat_id_)) or database:get(bot_id.."Private:Group:Link"..msg.chat_id_) 
 if linkgpp.ok == true then 
-database:set(bot_id.."Private:Group:Link"..msg.chat_id_,linkgpp.result)
-linkgp = '\n⩹━━━━⊶❲¹𝐀𝐕𝐈𝐑𝐀¹❳⊷━━━━⩺\n ['..linkgpp.result..']'
-else
-linkgp = ' ● لا يوجد رابط ارسل ضع رابط'
-end  
-send(msg.chat_id_, msg.id_,linkgp)              
-end            
+local Teext =  ☉┇ ..ta.title_.. \n ..linkgpp.result 
+local inline = {{{text = ta.title_, url=linkgpp.result}},} 
+send_inline_key(msg.chat_id_,Teext,nil,inline,msg.id_/2097152/0.5) 
+else 
+send(msg.chat_id_, msg.id_, ☉┇لا يوجد رابط ارسل ضع رابط ) 
+end 
+end,nil) 
 end
 if text == 'مسح الرابط' or text == 'حذف الرابط' then
 if Mod(msg) then     
@@ -13933,14 +13925,14 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 
-if text and text:match("^انطق (.*)$") then  
-local textntk = text:match("^انطق (.*)$")  
-UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(textntk)..'')  
-Antk = JSON.decode(UrlAntk)  
-if UrlAntk.ok ~= false then  
-download_to_file("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",Antk.result.translate..'.mp3')   
-local curlm = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. msg.sender_user_id_ ..'" -F "document=@'..''..textntk..'.mp3'..'"' io.popen(curlm)
-end  
+if text and text:match("^انطق (.*)$") then   
+local textntk = text:match("^انطق (.*)$")   
+UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(textntk)..'')   
+Antk = JSON.decode(UrlAntk)   
+if UrlAntk.ok ~= false then   
+download_to_file("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",Antk.result.translate..'.mp3')    
+local curlm = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. msg.chat_id_ ..'" -F "document=@'..''..textntk..'.mp3'..'"' io.popen(curlm) 
+end   
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
 if text == "تعطيل الزخرفه" and Manager(msg) then
