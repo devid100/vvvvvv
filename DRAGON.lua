@@ -3997,7 +3997,7 @@ database:set(bot_id..'lock:Fshar'..msg.chat_id_,true)
 database:set(bot_id..'lock:edit'..msg.chat_id_,true)  
 database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)  
-send(msg.chat_id_, msg.id_,'\n☉┇تم قفل البوتات بالطرد\n☉┇تم وضع الايدي بدون صوره\n☉┇تم قفل التكرار بالطرد\n☉┇تم قفل الروابط\n☉┇تم قفل التوجيه\n☉┇تم قفل الملصقات\n☉┇تم قفل المتحركه\n☉┇تم قفل الفيديو\n☉┇تم قفل السب\n☉┇تم قفل التعديل\n☉┇تم قفل الفارسيه\n☉┇تم قفل التفليش\n\nتم تفعيل الحمايه بواسطه »>['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'A_V_I_R_A_1')..')')   
+send(msg.chat_id_, msg.id_,'\n◉تم قفل البوتات بالطرد\n◉تم وضع الايدي بدون صوره\n◉تم قفل التكرار بالطرد\n◉تم قفل الروابط\n◉تم قفل التوجيه\n◉تم قفل الملصقات\n◉تم قفل المتحركه\n◉تم قفل الفيديو\n◉تم قفل السب\n◉تم قفل التعديل\n◉تم قفل الفارسيه\n◉تم قفل التفليش\n\nتم تفعيل الحمايه بواسطه »>['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'A_V_I_R_A_1')..')')   
 end,nil) 
 end
 --------------------------------------------------------------------------------------------------------------
@@ -9319,11 +9319,11 @@ if text == "الرابط" then
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_)) or database:get(bot_id.."Private:Group:Link"..msg.chat_id_) 
 if linkgpp.ok == true then 
-local Teext = '☉┇'..ta.title_..'\n'..linkgpp.result 
+local Teext = '◉'..ta.title_..'\n'..linkgpp.result 
 local inline = {{{text = ta.title_, url=linkgpp.result}},} 
 send_inline_key(msg.chat_id_,Teext,nil,inline,msg.id_/2097152/0.5) 
 else 
-send(msg.chat_id_, msg.id_,'☉┇لا يوجد رابط ارسل ضع رابط') 
+send(msg.chat_id_, msg.id_,'◉لا يوجد رابط ارسل ضع رابط') 
 end 
 end,nil) 
 end
@@ -11728,10 +11728,10 @@ tdcli_function ({ID = "GetUser",user_id_ = userid},function(extra,data)
 local rtp = Rutba(userid,msg.chat_id_) 
 local username = ('[@'..data.username_..']' or 'لا يوجد') 
 local iduser = userid 
-send(msg.chat_id_, msg.id_,' ☉┇الايدي »> ('..iduser..')\n☉┇المعرف »> ('..username..')\n☉┇الرتبه »> ('..rtp..')\n☉┇نوع الكشف »> بالمعرف') 
+send(msg.chat_id_, msg.id_,' ◉الايدي »> ('..iduser..')\n◉المعرف »> ('..username..')\n◉الرتبه »> ('..rtp..')\n◉نوع الكشف »> بالمعرف') 
 end,nil) 
 else 
-send(msg.chat_id_, msg.id_,' ☉┇المعرف غير صحيح') 
+send(msg.chat_id_, msg.id_,' ◉المعرف غير صحيح') 
 end 
 end 
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil) 
