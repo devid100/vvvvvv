@@ -2529,10 +2529,10 @@ send(msg.chat_id_, msg.id_," ◉ اهلا عزيزي المطور \n ◉ ارس�
 end
 return false  
 end
-if text == "تعطيل الاشتراك الاجباري " and DevSoFi(msg) then  
+if text == "تعطيل الاشتراك الاجباري" and DevSoFi(msg) then  
 database:del(bot_id..'add:ch:id')
 database:del(bot_id..'add:ch:username')
-send(msg.chat_id_, msg.id_, " ◉ تم تعطيل الاشتراك الاجباري ")
+send(msg.chat_id_, msg.id_, " ◉ تم تعطيل الاشتراك الاجباري")
 return false  
 end
 if text == "الاشتراك الاجباري " and DevSoFi(msg) then  
