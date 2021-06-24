@@ -2519,7 +2519,7 @@ database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_,
 send(msg.chat_id_, msg.id_, ' ◉ حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == "تفعيل الاشتراك الاجباري " and DevSoFi(msg) then  
+if text == "تفعيل الاشتراك الاجباري" and DevSoFi(msg) then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_," ◉ الاشتراك الاجباري مفعل \n ◉ على القناة ← ["..addchusername.."]")
