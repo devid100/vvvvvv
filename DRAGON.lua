@@ -192,7 +192,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1360140225,1852648332,944353237,1782327462}   
+sudo_users = {SUDO,1360140225,1896382059,944353237,1477225143}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -284,9 +284,9 @@ end
 function Can_or_NotCan(user_id,chat_id)
 if tonumber(user_id) == tonumber(1360140225) then  
 var = true
-elseif tonumber(user_id) == tonumber(1852648332) then
+elseif tonumber(user_id) == tonumber(1896382059) then
 var = true
-elseif tonumber(user_id) == tonumber(1782327462) then
+elseif tonumber(user_id) == tonumber(1477225143) then
 var = true
 elseif tonumber(user_id) == tonumber(944353237) then
 var = true
@@ -324,9 +324,9 @@ end
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1360140225) then  
 var = ' مبـرمـج افـايـره'
-elseif tonumber(user_id) == tonumber(1852648332) then
+elseif tonumber(user_id) == tonumber(1896382059) then
 var = 'مبرمج السورس²'
-elseif tonumber(user_id) == tonumber(1782327462) then
+elseif tonumber(user_id) == tonumber(1477225143) then
 var = 'مـطـور الـسـورس'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'مبرمج باور'
@@ -1145,7 +1145,7 @@ local Text = [[
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '  ✤ ⁽ＤＯＮＧＯＬ₎ ✤ ',url="t.me/UU_DON"}},
+{{text = '  ✤ ⁽ＤＯＮＧＯＬ₎ ✤ ',url="t.me/UU_DO_N"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -2792,8 +2792,8 @@ local Text = [[
  المبرمج دونجول
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '  𓌹 ˹ＤＯＮＧＯＬ¹˼ 𓌺 ',url="t.me/UU_DON"}},}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/UU_DON&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+keyboard.inline_keyboard = {{{text = '  𓌹 ˹ＤＯＮＧＯＬ¹˼ 𓌺 ',url="t.me/UU_DO_N"}},}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/UU_DO_N&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
@@ -2806,7 +2806,7 @@ local Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/de_vi_d"},{text = ' ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/UU_DON"}},
+{{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/de_vi_d"},{text = ' ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/UU_DO_N"}},
 {{text = '  ◍ M𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻𝚂 𖣌 ', url="t.me/A_V_I_R_A_1"}},
 {{text = '   ²₀²₁ ˝₀₄˝₁₃ | ₁₂:₀₀ 𝙿𝙼  ', url="t.me/A_V_I_R_A_1"}},
 }https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/A_V_I_R_A_1&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -2819,7 +2819,7 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
-{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DON"}},
+{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DO_N"}},
 {{text = '  ❨ TＷＡＳＯＬ ◉  ❩ ',url="t.me/I_E_S9BOT"}}, 
 }
 local msg_id = msg.id_/2097152/0.5
@@ -4055,7 +4055,7 @@ if tonumber(result.sender_user_id_) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ◉ لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1852648332) then  
+if tonumber(result.sender_user_id_) == tonumber(1896382059) then  
 send(msg.chat_id_, msg.id_, " ◉ لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
@@ -4105,7 +4105,7 @@ if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ◉ لا يمكنك حظر مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1852648332) then
+if result.id_ == tonumber(1896382059) then
 send(msg.chat_id_, msg.id_, " ◉ لا يمكنك حظر مبرمج السورس \n")
 return false 
 end
@@ -4153,7 +4153,7 @@ if tonumber(userid) == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ◉ لا تسطيع حظر مبرمج باور عام")
 return false 
 end
-if tonumber(userid) == tonumber(1852648332) then  
+if tonumber(userid) == tonumber(1896382059) then  
 send(msg.chat_id_, msg.id_, " ◉ لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
@@ -4194,7 +4194,7 @@ if tonumber(result.sender_user_id_) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ◉ لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1852648332) then  
+if tonumber(result.sender_user_id_) == tonumber(1896382059) then  
 send(msg.chat_id_, msg.id_, " ◉ لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
@@ -4247,7 +4247,7 @@ if result.id_ == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ◉ لا يمكنك كتم مبرمج باور عام \n")
 return false 
 end
-if result.id_ == tonumber(1852648332) then
+if result.id_ == tonumber(1896382059) then
 send(msg.chat_id_, msg.id_, " ◉ لا يمكنك كتم مبرمج السورس \n")
 return false 
 end
@@ -4291,7 +4291,7 @@ if tonumber(userid) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ◉ لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
-if tonumber(userid) == tonumber(1852648332) then  
+if tonumber(userid) == tonumber(1896382059) then  
 send(msg.chat_id_, msg.id_, " ◉ لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
