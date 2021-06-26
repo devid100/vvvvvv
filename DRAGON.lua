@@ -5212,7 +5212,6 @@ send(msg.chat_id_, msg.id_,'◉ منشئ الجروب ← ['..bi.first_name_..']
   end end 
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = owner_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end,nil) 
-end 
 end,nil) 
 end
 if text == "رفع منشئ" and msg.reply_to_message_id_ and BasicConstructor(msg) then
