@@ -5212,7 +5212,8 @@ send(msg.chat_id_, msg.id_,'◉ منشئ الجروب ← ['..bi.first_name_..']
   end end 
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = owner_id, offset_ = 0, limit_ = 1 }, getpro, nil) 
 end,nil) 
-endif text == "رفع منشئ" and msg.reply_to_message_id_ and BasicConstructor(msg) then
+end
+if text == "رفع منشئ" and msg.reply_to_message_id_ and BasicConstructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local A_V_I_R_A_1 = database:get(bot_id..'text:ch:user')
 if A_V_I_R_A_1 then
