@@ -192,7 +192,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1360140225,1896382059,944353237,1713816440}   
+sudo_users = {SUDO,1360140225,1896382059,944353237,1713816440,1282382975}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -286,6 +286,8 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = true
 elseif tonumber(user_id) == tonumber(1896382059) then
 var = true
+elseif tonumber(user_id) == tonumber(1282382975) then
+var = true
 elseif tonumber(user_id) == tonumber(1713816440) then
 var = true
 elseif tonumber(user_id) == tonumber(944353237) then
@@ -326,6 +328,8 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = ' مبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(1896382059) then
 var = 'مبرمج السورس²'
+elseif tonumber(user_id) == tonumber(1282382975) then
+var = 'المرمج دارك'
 elseif tonumber(user_id) == tonumber(1713816440) then
 var = 'مـطـور الـسـورس'
 elseif tonumber(user_id) == tonumber(944353237) then
@@ -2807,8 +2811,8 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/de_vi_d"},{text = ' ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/UU_DO_N"}},
-{{text = '  ◍ M𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻𝚂 𖣌 ', url="t.me/A_V_I_R_A_1"}},
-{{text = '   ²₀²₁ ˝₀₄˝₁₃ | ₁₂:₀₀ 𝙿𝙼  ', url="t.me/A_V_I_R_A_1"}},
+{{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ', url="t.me/f6f6ff"}},
+{{text = '   ◍ M𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻𝚂 𖣌  ', url="t.me/A_V_I_R_A_1"}},
 }https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/A_V_I_R_A_1&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
