@@ -329,7 +329,7 @@ var = ' مبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(1896382059) then
 var = 'مبرمج السورس²'
 elseif tonumber(user_id) == tonumber(1282382975) then
-var = 'المرمج دارك'
+var = 'المبرمج دارك'
 elseif tonumber(user_id) == tonumber(1713816440) then
 var = 'مـطـور الـسـورس'
 elseif tonumber(user_id) == tonumber(944353237) then
@@ -910,6 +910,7 @@ local bl = 'انت الان المطور الاساسي في البوت \n سو�
 local keyboard = {
 {'الاحصائيات','المطور','الثانوين'},
 {'ديفيد مبرمج السورس','مبرمج السورس²'},
+{'المبرمج دارك'},
 {'قناه السورس','بوت تواصل'},
 {'اضف رد عام','حذف رد عام'},
 {'اضف رد متعدد','حذف رد متعدد'},
@@ -950,6 +951,7 @@ keyboard = start
 else
 keyboard = {
 {'مبرمج السورس','مبرمج السورس²'},
+{'مبرمج السورس³'},
 {'⩹━━━━⊶❲¹𝐀𝐕𝐈𝐑𝐀¹❳⊷━━━━⩺'},
 {'قناة السورس','بوت التواصل'},
 {'⩹━━━━⊶❲¹𝐀𝐕𝐈𝐑𝐀¹❳⊷━━━━⩺'},
@@ -1138,6 +1140,19 @@ local Text = [[
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {{text = '  ✤ ⁽ＤＥＶＩＤ₎ ✤ ', url="t.me/de_vi_d"}}, 
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
+if text == 'المبرمج دارك' and DevSoFi(msg) then
+database:del(bot_id..'Srt:Bot') 
+local Text = [[ 
+𝐂𝐎𝐃𝐄𝐑 𝐒𝐎𝐔𝐑𝐂𝐄 𝐀𝐕𝐈𝐑𝐀 🪐
+]] 
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="t.me/f6f6ff"}}, 
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -2816,6 +2831,32 @@ keyboard.inline_keyboard = {
 }https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/A_V_I_R_A_1&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
+if text == 'روايات' or text == 'الروايات' or text == 'ررويات' then
+local Text = [[
+❈The list of novels.
+]]
+keyboard = {} keyboard.inline_keyboard = {
+{{text = '📖رواية "أرض زيكولا"',url="https://t.me/SOURCE_SP/9"}},
+{{text = '📖موسوعة الظلام رعب وما شابه ذلك', url="https://t.me/SOURCE_SP/3"}},
+{{text = '📖رواية "الشفق الجزء الأول"', url="https://t.me/SOURCE_SP/5"}},
+{{text = '📖رواية "المخلوق', url="https://t.me/SOURCE_SP/6"}},
+{{text = '📖رواية "بعد النسيان"', url="https://t.me/SOURCE_SP/7"}},
+{{text = '📖كتاب في حضرة الجن', url="https://t.me/https://t.me/SOURCE_SP/8"}},
+{{text = '📖رواية "واختفى كل شئ"', url="https://t.me/SOURCE_SP/10"}},
+{{text = '📖رواية "نيلوفر أسود"', url="https://t.me/SOURCE_SP/11"}},
+{{text = '📖رواية"جثة في الفندق"', url="https://t.me/SOURCE_SP/12"}},
+{{text = '📖رواية "في القطار السريع"', url="https://t.me/SOURCE_SP/13"}},
+{{text = '📖لقاء مع كاتب رعب"', url="https://t.me/SOURCE_SP/14"}},
+{{text = '📖رواية"الإنسان الأخير""', url="https://t.me/SOURCE_SP/16"}},
+{{text = '📖رواية" مقبرة الحيوانات""', url="https://t.me/SOURCE_SP/15"}},
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="http://t.me/F6F6FF"}},
+{{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
+{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DO_N"}}
+}
+local msg_id = msg.id_/2097152/0.5  
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
+end
+
 if text == 'مين نصبلك' or text == 'عايزه بوت' or text == 'عايز بوت' then
 local Text = [[
  ◉ اهلا بك في سورس افايره الجمدان لو عايز بوت بأسعار منسبه وبوت مميز كلمني  ◉ 
@@ -2824,6 +2865,7 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
 {{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DO_N"}},
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="http://t.me/F6F6FF"}},
 {{text = '  ❨ TＷＡＳＯＬ ◉  ❩ ',url="t.me/I_E_S9BOT"}}, 
 }
 local msg_id = msg.id_/2097152/0.5
@@ -3046,6 +3088,18 @@ local Text = [[
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘', url="t.me/de_vi_d"}}, 
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
+if text == 'مبرمج السورس³' then
+local Text = [[ 
+𝐂𝐎𝐃𝐄𝐑 𝐒𝐎𝐔𝐑𝐂𝐄 𝐀𝐕𝐈𝐑𝐀 🪐
+]] 
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="t.me/f6f6ff"}}, 
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
