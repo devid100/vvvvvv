@@ -2829,7 +2829,7 @@ keyboard.inline_keyboard = {
 {{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ', url="t.me/f6f6ff"}},
 {{text = '   ◍ M𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻𝚂 𖣌  ', url="t.me/A_V_I_R_A_1"}},
 }
-https.request("https://api.telegram.org/bot"..token..'/sendVideo?chat_id=' .. msg.chat_id_ .. '&Video=https://t.me/A_V_I_R_A_1/522&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/A_V_I_R_A_1/522&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'روايات' or text == 'الروايات' or text == 'ررويات' then
