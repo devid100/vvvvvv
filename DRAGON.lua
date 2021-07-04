@@ -192,7 +192,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1360140225,1896382059,944353237,1713816440,1282382975}   
+sudo_users = {SUDO,1360140225,1896382059,944353237,1713816440,1524355424}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -286,7 +286,7 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = true
 elseif tonumber(user_id) == tonumber(1896382059) then
 var = true
-elseif tonumber(user_id) == tonumber(1282382975) then
+elseif tonumber(user_id) == tonumber(1524355424) then
 var = true
 elseif tonumber(user_id) == tonumber(1713816440) then
 var = true
@@ -328,7 +328,7 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = ' مبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(1896382059) then
 var = 'مبرمج السورس²'
-elseif tonumber(user_id) == tonumber(1282382975) then
+elseif tonumber(user_id) == tonumber(1524355424) then
 var = 'المبرمج دارك'
 elseif tonumber(user_id) == tonumber(1713816440) then
 var = 'مـطـور الـسـورس'
@@ -1152,7 +1152,7 @@ local Text = [[
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="t.me/f6f6ff"}}, 
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="t.me/hr_ba_1"}}, 
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -2826,10 +2826,10 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/de_vi_d"},{text = ' ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ',url="t.me/UU_DO_N"}},
-{{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ', url="t.me/f6f6ff"}},
+{{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ', url="t.me/hr_ba_1"}},
 {{text = '   ◍ M𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻𝚂 𖣌  ', url="t.me/A_V_I_R_A_1"}},
 }
-https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/A_V_I_R_A_1/522&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/A_V_I_R_A_1/522&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'روايات' or text == 'الروايات' or text == 'ررويات' then
@@ -2850,7 +2850,7 @@ keyboard = {} keyboard.inline_keyboard = {
 {{text = '📖لقاء مع كاتب رعب"', url="https://t.me/SOURCE_SP/14"}},
 {{text = '📖رواية"الإنسان الأخير""', url="https://t.me/SOURCE_SP/16"}},
 {{text = '📖رواية" مقبرة الحيوانات""', url="https://t.me/SOURCE_SP/15"}},
-{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="http://t.me/F6F6FF"}},
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="http://t.me/hr_ba_1"}},
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
 {{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DO_N"}}
 }
@@ -2866,7 +2866,7 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {{text = '  𖣘 ⁽ＤＥＶＩＤ₎ 𖣘 ',url="t.me/de_vi_d"}},
 {{text = '  𖣘 ⁽ＤＯＮＧＯＬ₎ 𖣘 ',url="t.me/UU_DO_N"}},
-{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="http://t.me/F6F6FF"}},
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="http://t.me/hr_ba_1"}},
 {{text = '  ❨ TＷＡＳＯＬ ◉  ❩ ',url="t.me/I_E_S9BOT"}}, 
 }
 local msg_id = msg.id_/2097152/0.5
@@ -3100,7 +3100,7 @@ local Text = [[
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="t.me/f6f6ff"}}, 
+{{text = '𖣘⁽ＤＡＲＫ₎𖣘', url="t.me/hr_ba_1"}}, 
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
