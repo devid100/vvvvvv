@@ -10945,7 +10945,7 @@ end
 end
 if text == "ثيم" then  
 ght = math.random(1,33);  
-local Text ='تم اختيار المقطع الصوتي لك'  
+local Text ='بلحه كبيره'  
 keyboard = {}   
 keyboard.inline_keyboard = {  
 {{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..dofile("./vvvvvvInfo.lua").botUserName.."?startgroup=start"}},  
