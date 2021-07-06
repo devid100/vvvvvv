@@ -1194,14 +1194,14 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 
-if text == 'مطور السورس' and DevSoFi(msg) then
+if text == 'ديفيد' and DevSoFi(msg) then
 database:del(bot_id..'Srt:Bot') 
 local Text = [[ 
 𝐂𝐎𝐃𝐄𝐑 𝐒𝐎𝐔𝐑𝐂𝐄 𝐀𝐕𝐈𝐑𝐀 🪐
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '𖣘⁽ＨＡＲＶＥＹ₎𖣘', url="t.me/hr_ba_1"}}, 
+{{text = 'ＤＥＶＩＤ', url="t.me/de_vi_d"}}, 
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -2862,16 +2862,6 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = '  𓌹 ˹ＤＯＮＧＯＬ¹˼ 𓌺 ',url="t.me/UU_DO_N"}},}
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/UU_DO_N&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if text == 'ديفيد' or text == "ديفد" then
-local msg_id = msg.id_/2097152/0.5
-local Text = [[
-{ المبرمج ديفيد }
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = '  𓌹 ˹ＤＥＶＩＤ¹˼ 𓌺 ',url="t.me/de_vi_d"}},}
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/de_vi_d&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
