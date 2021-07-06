@@ -906,7 +906,7 @@ end
 return false
 end
 if DevSoFi(msg) then
-local bl = '◉ مرحبا بك في اوامر المطور الجاهزه \n◉ [قناة السورس](t.me/soracehalloween)'
+local bl = '◉ مرحبا بك في اوامر المطور الجاهزه \n◉ [قناة السورس](t.me/A_V_I_R_A_1)'
 local keyboard = {
 {'ديفيد','دونجول'},
 {'ضع اسم للبوت'},
