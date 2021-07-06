@@ -923,7 +923,7 @@ local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه ل
 agwa = dofile("./vvvvvvInfo.lua").UserName
  agwa = agwa:gsub("%@", "")
 local inline = {
-{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}}
+{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
 {{text = 'اضف البوت الي مجموعتك 𖠕' ,url="t.me/"..dofile("./vvvvvvInfo.lua").botUserName.."?startgroup=start"}}, 
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
 } 
