@@ -2864,6 +2864,16 @@ keyboard.inline_keyboard = {{{text = '  𓌹 ˹ＤＯＮＧＯＬ¹˼ 𓌺 ',url
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/UU_DO_N&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
+if text == 'ديفيد' or text == "ديفد" then
+local msg_id = msg.id_/2097152/0.5
+local Text = [[
+{ المبرمج ديفيد }
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = '  𓌹 ˹ＤＥＶＩＤ¹˼ 𓌺 ',url="t.me/UU_DO_N"}},}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/de_vi_d&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
 local msg_id = msg.id_/2097152/0.5
 local Text = [[
