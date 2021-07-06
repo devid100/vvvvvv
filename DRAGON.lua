@@ -920,6 +920,7 @@ send_inline_key(msg.chat_id_,bl,keyboard)
 else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
+Namebot = (database:get(bot_id..'Name:Bot') or 'افايره')
 agwa = dofile("./vvvvvvInfo.lua").UserName
  agwa = agwa:gsub("%@", "")
 local inline = {
@@ -940,7 +941,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Start_Source = start
 else
-Start_Source = "☉┇مرحبا عزيزي انا بوت اسمي "..Name_Bot.."\n☉┇اختصائي حمايه جروبات من الدرجه الاوله\n☉┇طريقه تفعيلي في المجموعات\n☉┇1-قم بي اضافتي الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇و سيتم تفعيل البوت و تثبيت مشرفين المجموعه ادمن في البوت\n☉┇يمكنك التواصل مع المطور من الزر ادناه"
+Start_Source = "☉┇مرحبا عزيزي انا بوت اسمي "..Namebot.."\n☉┇اختصائي حمايه جروبات من الدرجه الاوله\n☉┇طريقه تفعيلي في المجموعات\n☉┇1-قم بي اضافتي الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇و سيتم تفعيل البوت و تثبيت مشرفين المجموعه ادمن في البوت\n☉┇يمكنك التواصل مع المطور من الزر ادناه"
 end
 send_inline_key(msg.chat_id_,Start_Source,nil,inline)
 send_inline_key(msg.chat_id_,Sudo_Welcome,Keyboard)
