@@ -895,20 +895,19 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
-if text == '/start' or text == 'العوده' then  
-if AddChannel(msg.sender_user_id_) == false then
-local soracehalloween = database:get(bot_id..'text:ch:user')
-if soracehalloween then
-send(msg.chat_id_, msg.id_,'['..soracehalloween..']')
-else
-send(msg.chat_id_, msg.id_,'    يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-if DevSoFi(msg) then
-local bl = '◉ مرحبا بك في اوامر المطور الجاهزه \n◉ [قناة السورس](t.me/A_V_I_R_A_1)'
+if text == '/start' and DevSoFi(msg) then 
+local Text = '●انت الان المطور الاساسي في البوت \n● سورس سون\n ●يمكنك تحكم في البوتات من الكيبورد أسفل \n[تابع جديدنا](t.me/Soon_ban)'
+keyboard = {} 
+keyboard.inline_keyboard = {
+agwa = dofile("./vvvvvvInfo.lua").UserName
+ agwa = agwa:gsub("%@", "")
+local inline = {
+{{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
+{{text = 'اضف البوت الي مجموعتك 𖠕' ,url="t.me/"..dofile("./vvvvvvInfo.lua").botUserName.."?startgroup=start"}},
+}
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/A_V_I_R_A_1/545&caption=' .. URL.escape(bl).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/Qtdao/24&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+endw=true&reply_markup="..JSON.encode(keyboard)) 
 end
 local keyboard = {
 {'ديفيد','دونجول'},
