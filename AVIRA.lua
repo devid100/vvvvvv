@@ -1266,7 +1266,7 @@ if text == 'المطور' or text == 'مطور' then
 tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result)  
 local msg_id = msg.id_/2097152/0.5 
 local Text = [[ 
- المطور 
+ { المطور }
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
