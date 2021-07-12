@@ -1807,10 +1807,8 @@ if result.photos_[0] then
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '  مطور البوت 𖠕 ',url="t.me/"..agwa}},
-},
-{
 {{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..dofile("./vvvvvvInfo.lua").botUserName.."?startgroup=start"}},
-},
+}
 local msg_id = msg.id_/2097152/0.5
 local Texti = "٭ مرحبا انا بوت "..N.." \n↞ اختصاصي ادارة المجموعات من السبام والخ..\n↞ للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(Texti)..'&photo='..result.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
