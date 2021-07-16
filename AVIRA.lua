@@ -11101,6 +11101,7 @@ end
 
 if text == 'بخ' then
 local Text = [[
+كسم ديفيد
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
