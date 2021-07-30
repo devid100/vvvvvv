@@ -192,7 +192,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1360140225,1896382059,944353237,1713816440,1524355424}   
+sudo_users = {SUDO,1360140225,1896382059,944353237,1741899314,1524355424}   
 function SudoBot(msg)  
 local AVIRA = false  
 for k,v in pairs(sudo_users) do  
@@ -288,7 +288,7 @@ elseif tonumber(user_id) == tonumber(1896382059) then
 var = true
 elseif tonumber(user_id) == tonumber(1524355424) then
 var = true
-elseif tonumber(user_id) == tonumber(1713816440) then
+elseif tonumber(user_id) == tonumber(1741899314) then
 var = true
 elseif tonumber(user_id) == tonumber(944353237) then
 var = true
@@ -330,7 +330,7 @@ elseif tonumber(user_id) == tonumber(1896382059) then
 var = 'مبرمج السورس²'
 elseif tonumber(user_id) == tonumber(1524355424) then
 var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(1713816440) then
+elseif tonumber(user_id) == tonumber(1741899314) then
 var = 'مـطـور الـسـورس'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'مبرمج باور'
@@ -1009,7 +1009,7 @@ local bl = 'مرحبا بك في اوامر المسح..💛🌚'
 local keyboard = {
 {'مسح المطورين','المطورين'},
 {'مسح الثانوين','الثانوين'},
-{'تنظيف الجروبات','تنظيف المشتركين'},
+{'مسح الجروبات','مسح المشتركين'},
 {'مسح قائمه العام','قائمه العام'},
 {'العوده'},
 }
@@ -1266,7 +1266,7 @@ if text == 'المطور' or text == 'مطور' then
 tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result)  
 local msg_id = msg.id_/2097152/0.5 
 local Text = [[ 
- { المطور }
+ المطور 
 ]] 
 keyboard = {}  
 keyboard.inline_keyboard = { 
@@ -2876,7 +2876,7 @@ keyboard.inline_keyboard = {
 {{text = '  ◍ D𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𖣌 ', url="t.me/hr_ba_1"}},
 {{text = '   ◍ M𝚈 𝙲𝙷𝙰𝙽𝙽𝙴𝙻𝚂 𖣌  ', url="t.me/A_V_I_R_A_1"}},
 }
-https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/A_V_I_R_A_1/6&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/A_V_I_R_A_1/522&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
 if text == 'روايات' or text == 'الروايات' or text == 'ررويات' then
@@ -11045,7 +11045,7 @@ keyboard.inline_keyboard = {
 {{text = '  اضف البوت الي مجموعتك 𖠕 ',url="t.me/"..dofile("./vvvvvvInfo.lua").botUserName.."?startgroup=start"}},  
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/Qapplu/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/koko12300/'..ght..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 
 if text == "كلمني" then
@@ -11054,63 +11054,6 @@ sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
 end
-
-if text == 'انا جيت' then
-local Text = [[
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '𓆩| ıl`ＡＶＩＲＡ´lı |𓆪', url="t.me/A_V_I_R_A_1"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendsticker?chat_id=' .. msg.chat_id_ .. '&sticker=https://t.me/comxnxp/20&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
-
-if text == 'عركني' then
-local Text = [[
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '𓆩| ıl`ＡＶＩＲＡ´lı |𓆪', url="t.me/A_V_I_R_A_1"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendsticker?chat_id=' .. msg.chat_id_ .. '&sticker=https://t.me/D_V1_D/94&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
-
-if text == 'لائيم' then
-local Text = [[
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '𓆩| ıl`ＡＶＩＲＡ´lı |𓆪', url="t.me/A_V_I_R_A_1"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendsticker?chat_id=' .. msg.chat_id_ .. '&sticker=https://t.me/D_V1_D/93&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
-
-if text == 'موت' then
-local Text = [[
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '𓆩| ıl`ＡＶＩＲＡ´lı |𓆪', url="t.me/A_V_I_R_A_1"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendsticker?chat_id=' .. msg.chat_id_ .. '&sticker=https://t.me/D_V1_D/95&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
-
-if text == 'بخ' then
-local Text = [[
-يوه خدتني اجدع
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '𓆩| ıl`ＡＶＩＲＡ´lı |𓆪', url="t.me/A_V_I_R_A_1"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/D_V1_D/96&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
 if text and text:match("^وضع لقب (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 local timsh = text:match("^وضع لقب (.*)$")
 function start_function(extra, result, success)
@@ -14951,7 +14894,7 @@ local Teext =[[
 ◉المشتركين
 ◉المجموعات 
 ◉تفعيل/تعطيل المغادره
-◉تنظيف الجروبات
+◉مسح الجروبات
 ⩹━━━━⊶❲¹𝐀𝐕𝐈𝐑𝐀¹❳⊷━━━━⩺
 ◉[𝐀𝐕𝐈𝐑𝐀 ](t.me/A_V_I_R_A_1)◉
 ]]
